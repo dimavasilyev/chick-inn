@@ -1,10 +1,14 @@
+import globalStyles from '../styles/global';
 import Header from './header';
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ color: 'blue' }}>
+    <div className="flex">
       <Header />
       {children}
+      {/* <style jsx global>
+        {globalStyles}
+      </style> */}
     </div>
   );
 };
