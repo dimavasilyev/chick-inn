@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from './header/header';
 import Meta from './meta';
 
 import backgroundImage from '../assets/background.jpg';
@@ -9,15 +9,18 @@ const Layout = ({ children }) => {
       <div className="container text-white">
         <Meta />
         <Header />
-        {children}
+        <div className="content">{children}</div>
       </div>
       <style jsx>
         {`
           .main-container {
-            width: 100%;
-            height: 100%;
-
+            width: 100vw;
+            overflow-y: scroll;
             background-image: url('${backgroundImage}');
+          }
+
+          .content {
+            padding-top: 6em;
           }
         `}
       </style>

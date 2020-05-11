@@ -1,22 +1,21 @@
 import React from 'react';
 
-import Button from '../button';
-import { useTitle } from '../../hooks';
+import { Button } from '../shared';
 
-const ProductShort = ({ id, title, weight, price }) => {
-  useTitle('hello');
-
+const ProductShort = ({ id, title, weight, price, onClick }) => {
   return (
-    <div className="product-short">
+    <div onClick={() => onClick(id)} className="product-short bg-black">
       <div>{title}</div>
       <div>{weight}g</div>
       <div>{price} lei</div>
-      <Button>Adauga in cos</Button>
+      <Button>Заказать</Button>
       <style jsx>
         {`
           .product-short {
             border: 1px solid white;
-            width: 50%;
+            cursor: pointer;
+            border-radius: 25px;
+            overflow: hidden;
           }
         `}
       </style>
@@ -24,4 +23,6 @@ const ProductShort = ({ id, title, weight, price }) => {
   );
 };
 
-export default ProductShort;
+const MemoProductShort = React.memo(ProductShort);
+
+export default MemoProductShort;
