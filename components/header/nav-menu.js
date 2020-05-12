@@ -1,34 +1,24 @@
 import React, { useMemo } from 'react';
 
-import Delivery from '../../assets/nav/LIVRARE.svg';
-import Menu from '../../assets/nav/MENIU.svg';
-import Contacts from '../../assets/nav/CONTACTE.svg';
-import AboutUs from '../../assets/nav/DESPRE_NOI.svg';
-import { IconContainer } from '../shared';
-
 const NavMenu = () => {
   const navItems = useMemo(
     () => [
       {
         title: 'Meniu',
         link: '#menu',
-        icon: <Menu />,
         onClick: () => window.scrollTo(0, 0),
       },
       {
         title: 'Contacte',
         link: '#contacte',
-        icon: <Contacts />,
       },
       {
         title: 'Livrare',
         link: '#delivery',
-        icon: <Delivery />,
       },
       {
         title: 'Despre noi',
         link: '#about-us',
-        icon: <AboutUs />,
       },
     ],
     [],
@@ -38,7 +28,7 @@ const NavMenu = () => {
     <nav className="">
       <ul className="flex justify-between">
         {navItems.map(({ link, title, icon, onClick }) => (
-          <li>
+          <li key={link}>
             <a onClick={onClick} href={link}>
               {title}
             </a>

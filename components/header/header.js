@@ -24,6 +24,7 @@ const Header = () => {
           header {
             z-index: 999;
             position: fixed;
+            border-radius: 0 0 15px 15px;
           }
 
           .logo {

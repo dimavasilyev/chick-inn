@@ -1,9 +1,6 @@
 const next = require('next');
 const express = require('express');
-const wooConfig = require('./woo-config');
-const WooCommerceRestApi = require('@woocommerce/woocommerce-rest-api').default;
-
-const WooCommerce = new WooCommerceRestApi(wooConfig);
+const { configureRoutes } = require('./routes');
 
 const port = 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -15,15 +12,7 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/getProducts', (req, response) => {
-      WooCommerce.get('products')
-        .then((res) => {
-          response.json(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+    configureRoutes(server);
 
     server.get('*', (req, res) => {
       return handle(req, res);

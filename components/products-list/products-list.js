@@ -77,6 +77,13 @@ const ProductsList = () => {
   );
 };
 
+ProductsList.getInitialProps = async (ctx) => {
+  const res = await fetch('/getProducts');
+  const json = await res.json();
+
+  return { stars: 1 };
+};
+
 export async function getStaticProps(context) {
   return {
     props: {},
