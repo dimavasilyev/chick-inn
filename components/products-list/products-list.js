@@ -3,91 +3,51 @@ import React, { useState } from 'react';
 import ProductShort from './product-short';
 import ProductExtended from './prooduct-extended';
 
-const ProductsList = () => {
+import { sortByMenuOrder, ExtendedProductsViewTypes, viewTypes } from 'helpers';
+
+const ProductsList = ({ categoriesWithProducts = [] }) => {
   const [extendedProductId, setExtendedProduct] = useState();
 
-  const items = [
-    {
-      id: 1,
-      title: "Chik'Inn Roll",
-      weight: 380,
-      price: 49,
-    },
-    {
-      id: 2,
-      title: 'Crispy Roll',
-      weight: 380,
-      price: 59,
-    },
-    {
-      id: 3,
-      title: 'Blue cheese Roll',
-      weight: 380,
-      price: 69,
-    },
-    {
-      id: 4,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-    {
-      id: 5,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-    {
-      id: 6,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-    {
-      id: 7,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-    {
-      id: 8,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-    {
-      id: 9,
-      title: 'Double cheese Roll',
-      weight: 400,
-      price: 59,
-    },
-  ];
+  const handleShortProductClick = (item) => {
+    if (item?.viewType === viewTypes.nonextended) {
+      console.log('add to cart');
+    } else {
+      setExtendedProduct(item.id);
+    }
+  };
+
+  sortByMenuOrder(categoriesWithProducts);
 
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 row-gap-6 col-gap-8">
-      {items.map((item) => (
-        <li key={item.id}>
-          {extendedProductId === item.id && (
-            <ProductExtended {...item} onClose={() => setExtendedProduct(undefined)} />
-          )}
-          <ProductShort {...item} onClick={setExtendedProduct} />
-        </li>
-      ))}
-    </ul>
+    <div>
+      {categoriesWithProducts.map(({ name, id, data }) => {
+        if (data?.length) {
+          return (
+            <div key={id}>
+              <h2 className="text-3xl my-10">{name}</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 row-gap-6 col-gap-8">
+                {data?.map((item) => (
+                  <li key={item.id}>
+                    {console.log(item)}
+                    {extendedProductId === item.id &&
+                      item.viewType &&
+                      item.viewType !== viewTypes.nonextended && (
+                        <ProductExtended
+                          {...item}
+                          onClose={() => setExtendedProduct(undefined)}
+                          viewType={item.viewType ?? viewTypes.select}
+                        />
+                      )}
+                    <ProductShort {...item} onClick={() => handleShortProductClick(item)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+      })}
+    </div>
   );
 };
-
-ProductsList.getInitialProps = async (ctx) => {
-  const res = await fetch('/getProducts');
-  const json = await res.json();
-
-  return { stars: 1 };
-};
-
-export async function getStaticProps(context) {
-  return {
-    props: {},
-  };
-}
 
 export default ProductsList;

@@ -2,26 +2,35 @@ import React, { useRef } from 'react';
 import { useTitle, useClickOutside, useKeyPress } from '../../hooks';
 
 import { Button } from 'components/shared';
+import { cleanTextFromTags, ExtendedProductsViewTypes } from 'helpers';
 import IngridientsList from './ingridients-list/ingridients-list';
+import SelectIngridient from './select-ingridient';
 
 import CloseIcon from '../../assets/close.svg';
 
-const ProductExtended = ({ id, title, description, weight, price, onClose }) => {
+const ProductExtended = ({ id, name, description, weight, price, onClose, images, viewType }) => {
   const ref = useRef();
-  useTitle(title);
+  useTitle(name);
   useClickOutside(ref, onClose);
   useKeyPress('Escape', onClose);
+
+  const [mainImageObj] = images;
+  const views = ExtendedProductsViewTypes[viewType]?.views;
+  const showToppings = views.includes('toppings');
+  const showSelect = views.includes('select');
 
   return (
     <div ref={ref} className="product-extended container">
       <div onClick={onClose} className="close-icon__container">
         <CloseIcon />
       </div>
-      <div className="text-2xl">{title}</div>
-      <div>{description}</div>
-      <div>{weight}g</div>
+      <img src={mainImageObj?.src} />
+      <div className="text-2xl">{name}</div>
+      <div>{cleanTextFromTags(description)}</div>
+      <div className="weight">{weight ? `${weight}g` : ''}</div>
       <div>{price} lei</div>
-      <IngridientsList />
+      {showSelect && <SelectIngridient />}
+      {showToppings && <IngridientsList />}
       <Button>Adauga in cos</Button>
       <style jsx>
         {`
@@ -44,6 +53,7 @@ const ProductExtended = ({ id, title, description, weight, price, onClose }) => 
             cursor: pointer;
             float: right;
           }
+
           .close-icon__container svg {
             width: 100%;
             height: 100%;

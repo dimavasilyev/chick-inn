@@ -14,7 +14,7 @@ const IngridientsList = () => {
       {isActive && (
         <ul>
           {items.map((item) => (
-            <li key={item.key}>
+            <li key={item.id}>
               <Ingridient {...item} />
             </li>
           ))}

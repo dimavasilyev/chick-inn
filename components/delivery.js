@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Delivery = () => {
-  return <div id="delivery">Delivery</div>;
+  return <div>Delivery</div>;
 };
 
 export default Delivery;
