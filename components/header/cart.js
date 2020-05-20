@@ -4,9 +4,10 @@ import Link from 'next/link';
 import CartIcon from '../../assets/cart-icon.svg';
 
 import { IconContainer } from '../shared';
+import { useCart } from '../cart-provider/cart-provider';
 
 const Delivery = () => {
-  const [counter, setCount] = useState(7);
+  const { total } = useCart();
 
   return (
     <div className="cart-container">
@@ -14,8 +15,8 @@ const Delivery = () => {
         <Link href="/cart">
           <CartIcon />
         </Link>
-        {counter > 0 && (
-          <div className="counter bg-yellow flex items-center justify-center">{counter}</div>
+        {total > 0 && (
+          <div className="counter bg-yellow flex items-center justify-center">{total}</div>
         )}
       </IconContainer>
       <style jsx>{`

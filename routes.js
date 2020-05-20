@@ -28,8 +28,18 @@ const configureRoutes = (server) => {
 
   // Create an order
   server.post('/orders', (req, response) => {
-    console.log(req, 'request');
     const data = {
+      payment_method: 'cod',
+      payment_method_title: 'Cash on delivery',
+      billing: {
+        email: 'john.doe@example.com',
+        phone: '(555) 666',
+        first_name: 'Dim',
+        last_name: 'Dom',
+        address_1: 'Minsk, 25',
+      },
+      customer_note: 'testing note',
+      order_comments: 'somo notes',
       line_items: [
         {
           product_id: 49,
@@ -40,6 +50,17 @@ const configureRoutes = (server) => {
           quantity: 1,
         },
       ],
+      shipping_lines: [
+        // {
+        //   method_id: 'flat_rate',
+        //   method_title: 'Flat Rate',
+        //   total: 18,
+        // },
+        // {
+        //   method_id: 'free_shipping',
+        //   method_title: 'Free shipping',
+        // },
+      ],
     };
 
     WooCommerce.post('orders', data)
@@ -47,7 +68,7 @@ const configureRoutes = (server) => {
         response.json(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   });
 };

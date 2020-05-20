@@ -1,7 +1,7 @@
 const config = {
-  url: 'http://localhost:8888/chicken-md',
-  consumerKey: 'ck_fc81326d2995a9f809e54ccbcc7b58b2e7f19288',
-  consumerSecret: 'cs_63a57626517df99eb08d897c08bce7477b38c692',
+  url: 'https://chicken.md/wp',
+  consumerKey: 'ck_bea8a092c6b72e0aa64246d355dafdbf48762279',
+  consumerSecret: 'cs_2370460ed183a9a46a7bec0009b36794a71aa9e5',
   version: 'wc/v3',
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 
 import Layout from '../components/layout';
 import ProductsList from '../components/products-list/products-list';
 import Contacts from '../components/contacts';
 import Delivery from '../components/delivery';
 import AboutUs from '../components/about-us';
+import api from '../api';
 
 const Index = ({ categoriesWithProducts }) => {
   return (
@@ -19,17 +19,17 @@ const Index = ({ categoriesWithProducts }) => {
 };
 
 export async function getStaticProps() {
-  const { data: categories } = await axios.get('http://localhost:3000/getCategories');
-  const { data: products } = await axios.get('http://localhost:3000/getProducts');
+  const { data: categories } = await api.getCategories();
+  const { data: products } = await api.getProducts();
 
   categories.forEach((category) => {
     if (category.count > 0 && category.display === 'products') {
       products.map((product) => {
         if (product.categories.some((productCategory) => category.id === productCategory.id)) {
           if (category.data?.length > 0) {
-            category.data.push({ ...product, viewType: 'COMBO' });
+            category.data.push(product);
           } else {
-            category.data = [{ ...product, viewType: 'COMBO' }];
+            category.data = [product];
           }
         }
       });
@@ -38,7 +38,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      products,
       categoriesWithProducts: categories,
     },
   };
