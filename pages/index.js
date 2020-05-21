@@ -7,14 +7,37 @@ import Delivery from '../components/delivery';
 import AboutUs from '../components/about-us';
 import api from '../api';
 
+import chickinnImg from '../assets/chickinn.jpg';
+import chickinnMobileImg from '../assets/chickinn-mobile.jpg';
+
 const Index = ({ categoriesWithProducts }) => {
   return (
-    <Layout>
-      <ProductsList categoriesWithProducts={categoriesWithProducts} />
-      <Contacts />
-      <Delivery />
-      <AboutUs />
-    </Layout>
+    <style jsx global>
+      {`
+        body {
+          width: 100vw;
+          height: 100vh;
+          margin: 0;
+          background-image: url('${chickinnImg}');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center center;
+          background-size: cover;
+        }
+
+        @media only screen and (max-width: 900px) {
+          body {
+            background-image: url('${chickinnMobileImg}');
+          }
+        }
+      `}
+    </style>
+    // <Layout>
+    //   <ProductsList categoriesWithProducts={categoriesWithProducts} />
+    //   <Contacts />
+    //   <Delivery />
+    //   <AboutUs />
+    // </Layout>
   );
 };
 
