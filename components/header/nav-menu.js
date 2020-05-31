@@ -40,7 +40,6 @@ const NavMenu = () => {
           @font-face {
             font-family: system;
             font-style: normal;
-            font-weight: 300;
             src: local('Chick.inn');
           }
 
