@@ -239,7 +239,7 @@ const NavMenu = ({ onItemClick }) => {
   const navItems = [
     {
       title: 'Meniu',
-      link: '#menu',
+      link: '/#menu',
       sublinks: categories,
     },
     {
@@ -248,12 +248,12 @@ const NavMenu = ({ onItemClick }) => {
     },
     {
       title: 'Contacte',
-      link: '#contacts',
+      link: '/#contacts',
     },
 
     {
       title: 'Despre noi',
-      link: '#about-us',
+      link: '/#about-us',
     },
   ];
 
@@ -268,10 +268,10 @@ const NavMenu = ({ onItemClick }) => {
   };
 
   return (
-    <nav className="pt-4 md:pt-0 md:mr-20">
+    <nav className="pt-4 md:pt-0 md:mr-32 md: ml-20">
       <ul className="flex flex-col md:flex-row justify-between items-center">
         {navItems.map(({ link, title, sublinks }) => (
-          <li key={link} className="mb-4 md:mb-0 text-2xl md:text-lg">
+          <li key={link} className="mb-4 md:mb-0 text-3xl md:text-xl">
             {sublinks?.length > 0 ? (
               <>
                 <a onClick={onItemClick} href={link}>
@@ -313,11 +313,8 @@ const NavMenu = ({ onItemClick }) => {
           }
 
           li:hover :global(.dropdown-container) {
-            display: none;
-          }
-
-          li:hover a:hover :global(.dropdown-container) {
-            display: none !important;
+            display: block;
+            transform: translateX(-40px);
           }
         `}
       </style>

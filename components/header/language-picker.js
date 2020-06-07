@@ -48,7 +48,7 @@ const LanguagePicker = () => {
           }
 
           .language :global(.dropdown-container) {
-            transform: translate(-31%);
+            transform: translateX(-25px);
           }
 
           .language:hover :global(.dropdown-container) {

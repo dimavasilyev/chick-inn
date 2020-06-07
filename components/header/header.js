@@ -28,7 +28,7 @@ const Header = () => {
     <>
       <NavMenu onItemClick={() => setMobileActive(false)} />
       <Cart />
-      <div className="flex md:flex-row items-center mx-auto justify-center mt-2 md:mt-0 mb-8 md:mb-0">
+      <div className="flex lg:flex-row items-center mx-auto justify-center mt-2 lg:mt-0 mb-8 lg:mb-0">
         <SocialIcons />
         <LanguagePicker />
       </div>
@@ -36,17 +36,17 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-black md:flex items-center container md:pr-10 py-4">
+    <header className="bg-black lg:flex items-center container lg:pr-10 py-4">
       <div className="flex items-center justify-between">
         <Link href="/">
           <div className="logo" onClick={handleLogoClick}>
             <Logo />
           </div>
         </Link>
-        <div onClick={scrollTop} className="uppercase text-lg md:hidden font-black text-center">
+        <div onClick={scrollTop} className="uppercase text-lg lg:hidden font-black text-center">
           In chicken we trust
         </div>
-        <div className="md:hidden cursor-pointer mr-4 ml-8" onClick={handleBurgerClick}>
+        <div className="lg:hidden cursor-pointer mr-4 ml-20" onClick={handleBurgerClick}>
           <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
             {isMobileActive ? (
               <path
@@ -64,7 +64,7 @@ const Header = () => {
           </svg>
         </div>
       </div>
-      {isMobileActive ? layout : <div className="hidden md:flex flex-1 items-center">{layout}</div>}
+      {isMobileActive ? layout : <div className="hidden lg:flex flex-1 items-center">{layout}</div>}
       <style jsx>
         {`
           header {
@@ -75,7 +75,7 @@ const Header = () => {
 
           .logo {
             cursor: pointer;
-            width: 100px;
+            width: 150px;
             min-width: 100px;
           }
         `}

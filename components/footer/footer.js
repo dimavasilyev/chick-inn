@@ -11,26 +11,26 @@ const Footer = () => {
   );
 
   return (
-    <footer className="container text-white mt-10">
-      <h2 className="hidden md:block uppercase font-bold text-center mx-auto px-8 mb-4 font-black text-4xl md:text-6xl">
+    <footer className="container text-white mt-20">
+      <h2 className="hidden lg:block uppercase font-bold text-center mx-auto px-8 mb-4 font-black text-4xl lg:text-6xl">
         In chicken we trust
       </h2>
-      <div className="bg-black flex flex-col md:flex-row md:flex-wrap p-8 pb-0 my-rounded">
-        <div id="contacts" className="md:w-1/4 font-black ">
-          <div className="block md:hidden uppercase text-4xl font-black mb-3 pt-20 -mt-20">
+      <div className="bg-black flex flex-col lg:flex-row lg:flex-wrap p-8 pb-0 my-rounded">
+        <div id="contacts" className="lg:w-1/4 font-black ">
+          <div className="block lg:hidden uppercase text-4xl font-black mb-3 pt-20 -mt-20">
             Contacte:
           </div>
-          <div className="text-xl md:text-xl">
+          <div className="text-xl lg:text-xl">
             <a href="tel:+373 78882 025">Tel: +373 7888 20 25</a>
           </div>
-          <div className="text-xl md:text-xl md:mb-4">
+          <div className="text-xl lg:text-xl lg:mb-4">
             <a href="mailto:info@chicken.md"> Email: info@chicken.md</a>
           </div>
-          <div className="hidden md:block">{designedBy}</div>
+          <div className="hidden lg:block">{designedBy}</div>
         </div>
-        <div className="h-2 md:h-auto w-full md:w-2 rounded bg-yellow md:mx-10 mb-5 mt-6 md:mt-0 md:mb-8" />
-        <div className="md:flex-1 md:mr-20">
-          <div id="about-us" className="text-4xl mb-3 md:mb-4 font-black uppercase">
+        <div className="h-2 lg:h-auto w-full lg:w-2 rounded bg-yellow lg:mx-10 mb-5 mt-6 lg:mt-0 lg:mb-8" />
+        <div className="lg:flex-1 lg:mr-20">
+          <div id="about-us" className="text-4xl mb-3 lg:mb-4 font-black uppercase">
             Despre noi:
           </div>
           <div className="text-sm">
@@ -39,9 +39,9 @@ const Footer = () => {
           </div>
           <input className="rounded mt-4 w-full" type="text" />
         </div>
-        <div className="md:hidden h-2  w-full  rounded bg-yellow  my-10 " />
-        <div className="md:hidden mt-8">{designedBy}</div>
-        <div className="mt-12 md:-mt-4 md:ml-auto md:w-1/4">{footerChickinnSvg}</div>
+        <div className="lg:hidden h-2  w-full  rounded bg-yellow  my-10 " />
+        <div className="lg:hidden mt-8">{designedBy}</div>
+        <div className="mt-12 lg:-mt-4 lg:ml-auto lg:w-1/4">{footerChickinnSvg}</div>
       </div>
       <style>
         {`
