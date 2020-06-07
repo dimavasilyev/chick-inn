@@ -280,7 +280,7 @@ const NavMenu = () => {
                 <Dropdown
                   items={sublinks}
                   renderItem={(item) => (
-                    <a href={`#${item.slug}`} className="block">
+                    <a href={`#${item.slug}`} className="block hover:text-yellow">
                       <div className="flex items-center mr-4">
                         <span className="w-4 bg-yellow h-4 mr-3 rounded-full" />
                         <span className="font-black text-base">{item.name}</span>

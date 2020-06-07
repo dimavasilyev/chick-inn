@@ -9,7 +9,7 @@ import Cart from './cart';
 
 const Header = () => {
   return (
-    <header className="bg-black h-20 flex items-center container">
+    <header className="bg-black h-20 flex items-center container md:pr-10">
       <Link href="/">
         <div className="logo" onClick={() => (window.scrollTop = 0)}>
           <Logo />
