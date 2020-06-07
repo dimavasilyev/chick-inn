@@ -6,27 +6,30 @@ import footerChickinnImage from '../../assets/footer-chickinn.svg';
 const Footer = () => {
   return (
     <footer className="h-20 container text-white">
-      <h2 className="uppercase text-5xl font-bold text-center mx-auto">In chicken we trust</h2>
+      <h2 className="uppercase font-bold text-center mx-auto px-8 mb-4 font-black">
+        In chicken we trust
+      </h2>
       <div className="bg-black flex flex-col md:flex-row justify-between md:flex-wrap p-8 pb-0 my-rounded">
         <div className="md:flex-1">
-          <div className="text-3xl">Tel: +373 78882 025</div>
-          <div className="text-3xl">Email: info@chicken.md</div>
+          <div className="text-3xl font-black">Tel: +373 78882 025</div>
+          <div className="text-3xl font-black">Email: info@chicken.md</div>
           <div className="">Дизайн сайта: Данила Охрименко</div>
         </div>
         <div className="h-2 md:h-auto w-full md:w-2 rounded bg-yellow md:mx-10 my-5 md:mt-0 md:mb-8" />
         <div className="md:flex-1">
-          <div className="text-3xl md:mb-4">Despre noi:</div>
+          <div className="text-3xl md:mb-4 font-black uppercase">Despre noi:</div>
           <div className="text-sm">
             It is a long established fact that a reader will be distracted by the readable content
             of a page when looking at its layout.
           </div>
           <input className="rounded mt-4 w-full mb-8" type="text" />
         </div>
-        <div className=" ml-10 mt-16 md:-mt-4 mr-20 ">{footerChickinnSvg}</div>
+        <div className="mt-16 md:-mt-4 md:ml-20">{footerChickinnSvg}</div>
       </div>
       <style>
         {`
           h2 {
+            font-size: 75px;
           }
 
           .my-rounded {

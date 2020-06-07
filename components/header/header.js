@@ -25,11 +25,13 @@ const Header = () => {
             z-index: 999;
             position: fixed;
             border-radius: 0 0 15px 15px;
+            min-height: 112px;
           }
 
           .logo {
             cursor: pointer;
-            width: 150px;
+            width: 100px;
+            min-width: 100px;
           }
         `}
       </style>

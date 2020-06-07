@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
           }
 
           .content {
-            padding-top: 6em;
+            padding-top: 130px;
           }
         `}
       </style>
