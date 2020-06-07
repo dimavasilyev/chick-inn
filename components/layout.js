@@ -12,7 +12,9 @@ const Layout = ({ children }) => {
         <Header />
         <div className="content">{children}</div>
       </div>
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
       <style jsx>
         {`
           .main-container {
@@ -21,6 +23,7 @@ const Layout = ({ children }) => {
             overflow-y: scroll;
             background-image: url('${backgroundImage}');
             display: grid;
+            scroll-behavior: smooth;
           }
 
           .content {

@@ -2,9 +2,6 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import ProductsList from '../components/products-list/products-list';
-import Contacts from '../components/contacts';
-import Delivery from '../components/delivery';
-import AboutUs from '../components/about-us';
 import api from '../api';
 
 // import chickinnImg from '../assets/chickinn.jpg';
@@ -1110,9 +1107,6 @@ const Index = ({
   return (
     <Layout>
       <ProductsList categoriesWithProducts={categoriesWithProducts} />
-      <Contacts />
-      <Delivery />
-      <AboutUs />
     </Layout>
   );
 };

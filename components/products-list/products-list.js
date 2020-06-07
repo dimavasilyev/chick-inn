@@ -25,7 +25,7 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
       {categoriesWithProducts.map(({ name, id, data, slug }) => {
         if (data?.length) {
           return (
-            <div key={id} className="pt-32 -mt-20" id={`${slug}`}>
+            <div key={id} className="pt-32 -mt-16 container" id={`${slug}`}>
               <h2 className="text-4xl pb-10 text-center category-title">{name}</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 row-gap-10 col-gap-20">
                 {data?.map((item) => (
@@ -53,8 +53,12 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
       <style jsx>
         {`
           .category-title {
-            font-family: Chickinn;
+            font-family: 'Chick-inn';
             text-transform: uppercase;
+          }
+
+          .container:first-child {
+            margin-top: -8em;
           }
         `}
       </style>

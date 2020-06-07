@@ -10,13 +10,15 @@ const Delivery = () => {
   const { total } = useCart();
 
   return (
-    <div className="cart-container">
+    <div className="cart-container hidden md:block">
       <IconContainer width={100}>
         <Link href="/cart">
           <CartIcon />
         </Link>
         {total > 0 && (
-          <div className="counter bg-yellow flex items-center justify-center">{total}</div>
+          <div className="counter bg-yellow flex items-center justify-center leading-4">
+            {total}
+          </div>
         )}
       </IconContainer>
       <style jsx>{`
@@ -31,7 +33,7 @@ const Delivery = () => {
           position: absolute;
           right: 20px;
           top: 33px;
-          font-size: 16px;
+          font-size: 17px;
           font-weight: 600;
         }
       `}</style>

@@ -28,8 +28,9 @@ const LanguagePicker = () => {
   const handleClick = () => {};
 
   return (
-    <div className="language text-xl uppercase font-black border-b-4 border-yellow">
+    <div className="relative language text-xl uppercase font-black">
       <div className="uppercase">{value.title}</div>
+      <div className="absolute w-full border-2 border-yellow rounded"></div>
       <Dropdown
         items={languages}
         renderItem={(item) => {

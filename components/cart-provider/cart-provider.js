@@ -6,7 +6,7 @@ const CartProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
       product_id: 93,
-      quantity: 7,
+      quantity: 3,
     },
     {
       product_id: 93,

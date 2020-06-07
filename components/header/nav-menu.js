@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Dropdown from '../dropdown';
 import api from '../../api';
 
-const NavMenu = () => {
+const NavMenu = ({ onItemClick }) => {
   const [categories, setCategories] = useState([
     {
       id: 22,
@@ -240,17 +240,17 @@ const NavMenu = () => {
     {
       title: 'Meniu',
       link: '#menu',
-      onClick: () => window.scrollTo(0, 0),
       sublinks: categories,
     },
     {
-      title: 'Contacte',
-      link: '#contacte',
+      title: 'Livrare',
+      link: '/delivery',
     },
     {
-      title: 'Livrare',
-      link: '#delivery',
+      title: 'Contacte',
+      link: '#contacts',
     },
+
     {
       title: 'Despre noi',
       link: '#about-us',
@@ -268,13 +268,13 @@ const NavMenu = () => {
   };
 
   return (
-    <nav className="">
-      <ul className="flex justify-between">
-        {navItems.map(({ link, title, onClick, sublinks }) => (
-          <li key={link}>
+    <nav className="pt-4 md:pt-0 md:mr-20">
+      <ul className="flex flex-col md:flex-row justify-between items-center">
+        {navItems.map(({ link, title, sublinks }) => (
+          <li key={link} className="mb-4 md:mb-0 text-2xl md:text-lg">
             {sublinks?.length > 0 ? (
               <>
-                <a onClick={onClick} href={link}>
+                <a onClick={onItemClick} href={link}>
                   {title}
                 </a>
                 <Dropdown
@@ -290,7 +290,7 @@ const NavMenu = () => {
                 />
               </>
             ) : (
-              <a onClick={onClick} href={link}>
+              <a onClick={onItemClick} href={link}>
                 {title}
               </a>
             )}
@@ -304,17 +304,16 @@ const NavMenu = () => {
           }
 
           ul {
-            font-family: Chickinn;
+            font-family: 'Chick-inn';
           }
 
           li {
-            font-size: 20px;
             cursor: pointer;
             text-transform: uppercase;
           }
 
           li:hover :global(.dropdown-container) {
-            display: block;
+            display: none;
           }
 
           li:hover a:hover :global(.dropdown-container) {

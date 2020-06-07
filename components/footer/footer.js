@@ -1,37 +1,50 @@
 import React from 'react';
-import Link from 'next/link';
 
-import footerChickinnImage from '../../assets/footer-chickinn.svg';
+import designByImg from '../../assets/do.png';
 
 const Footer = () => {
+  const designedBy = (
+    <div className="flex items-center justify-center">
+      <img src={designByImg} />
+      <div className="text-sm font-normal ml-3">Дизайн сайта: Данила Охрименко</div>
+    </div>
+  );
+
   return (
-    <footer className="h-20 container text-white">
-      <h2 className="uppercase font-bold text-center mx-auto px-8 mb-4 font-black">
+    <footer className="container text-white mt-10">
+      <h2 className="hidden md:block uppercase font-bold text-center mx-auto px-8 mb-4 font-black text-4xl md:text-6xl">
         In chicken we trust
       </h2>
-      <div className="bg-black flex flex-col md:flex-row justify-between md:flex-wrap p-8 pb-0 my-rounded">
-        <div className="md:flex-1">
-          <div className="text-3xl font-black">Tel: +373 78882 025</div>
-          <div className="text-3xl font-black">Email: info@chicken.md</div>
-          <div className="">Дизайн сайта: Данила Охрименко</div>
+      <div className="bg-black flex flex-col md:flex-row md:flex-wrap p-8 pb-0 my-rounded">
+        <div id="contacts" className="md:w-1/4 font-black ">
+          <div className="block md:hidden uppercase text-4xl font-black mb-3 pt-20 -mt-20">
+            Contacte:
+          </div>
+          <div className="text-xl md:text-xl">
+            <a href="tel:+373 78882 025">Tel: +373 7888 20 25</a>
+          </div>
+          <div className="text-xl md:text-xl md:mb-4">
+            <a href="mailto:info@chicken.md"> Email: info@chicken.md</a>
+          </div>
+          <div className="hidden md:block">{designedBy}</div>
         </div>
-        <div className="h-2 md:h-auto w-full md:w-2 rounded bg-yellow md:mx-10 my-5 md:mt-0 md:mb-8" />
-        <div className="md:flex-1">
-          <div className="text-3xl md:mb-4 font-black uppercase">Despre noi:</div>
+        <div className="h-2 md:h-auto w-full md:w-2 rounded bg-yellow md:mx-10 mb-5 mt-6 md:mt-0 md:mb-8" />
+        <div className="md:flex-1 md:mr-20">
+          <div id="about-us" className="text-4xl mb-3 md:mb-4 font-black uppercase">
+            Despre noi:
+          </div>
           <div className="text-sm">
             It is a long established fact that a reader will be distracted by the readable content
             of a page when looking at its layout.
           </div>
-          <input className="rounded mt-4 w-full mb-8" type="text" />
+          <input className="rounded mt-4 w-full" type="text" />
         </div>
-        <div className="mt-16 md:-mt-4 md:ml-20">{footerChickinnSvg}</div>
+        <div className="md:hidden h-2  w-full  rounded bg-yellow  my-10 " />
+        <div className="md:hidden mt-8">{designedBy}</div>
+        <div className="mt-12 md:-mt-4 md:ml-auto md:w-1/4">{footerChickinnSvg}</div>
       </div>
       <style>
         {`
-          h2 {
-            font-size: 75px;
-          }
-
           .my-rounded {
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
