@@ -43,10 +43,13 @@ const Header = () => {
             <Logo />
           </div>
         </Link>
-        <div onClick={scrollTop} className="uppercase text-lg lg:hidden font-black text-center">
+        <div
+          onClick={scrollTop}
+          className="uppercase text-lg lg:hidden font-black text-center -ml-12"
+        >
           In chicken we trust
         </div>
-        <div className="lg:hidden cursor-pointer mr-4 ml-20" onClick={handleBurgerClick}>
+        <div className="lg:hidden cursor-pointer mr-4" onClick={handleBurgerClick}>
           <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
             {isMobileActive ? (
               <path
@@ -75,7 +78,7 @@ const Header = () => {
 
           .logo {
             cursor: pointer;
-            width: 150px;
+            width: 130px;
             min-width: 100px;
           }
         `}

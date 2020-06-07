@@ -268,10 +268,10 @@ const NavMenu = ({ onItemClick }) => {
   };
 
   return (
-    <nav className="pt-4 md:pt-0 md:mr-32 md: ml-20">
-      <ul className="flex flex-col md:flex-row justify-between items-center">
+    <nav className="pt-4 lg:pt-0 lg:mr-32 lg:ml-20">
+      <ul className="flex flex-col lg:flex-row justify-between items-center">
         {navItems.map(({ link, title, sublinks }) => (
-          <li key={link} className="mb-4 md:mb-0 text-3xl md:text-xl">
+          <li key={link} className="mb-4 lg:mb-0 text-3xl lg:text-xl">
             {sublinks?.length > 0 ? (
               <>
                 <a onClick={onItemClick} href={link}>
