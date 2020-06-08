@@ -25,32 +25,22 @@ const Header = () => {
   };
 
   const layout = (
-    <>
-      <NavMenu onItemClick={() => setMobileActive(false)} />
-      <Cart />
-      <div className="flex lg:flex-row items-center mx-auto justify-center mt-2 lg:mt-0 mb-8 lg:mb-0">
-        <SocialIcons />
-        <LanguagePicker />
-      </div>
-    </>
+    <div className="flex lg:flex-row items-center">
+      <SocialIcons />
+      <LanguagePicker />
+    </div>
   );
 
   return (
     <header className="bg-black lg:flex items-center container lg:pr-10 py-4">
       <div className="flex items-center justify-between">
-        <Link href="/">
-          <div className="logo" onClick={handleLogoClick}>
-            <Logo />
-          </div>
-        </Link>
-        <div
-          onClick={scrollTop}
-          className="uppercase text-lg lg:hidden font-black text-center -ml-12"
-        >
-          In chicken we trust
-        </div>
-        <div className="lg:hidden cursor-pointer mr-4" onClick={handleBurgerClick}>
-          <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
+        <div className="lg:hidden cursor-pointer ml-4" onClick={handleBurgerClick}>
+          <svg
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            className="w-8 h-8"
+            style={{ transform: 'scaleX(-1)' }}
+          >
             {isMobileActive ? (
               <path
                 fillRule="evenodd"
@@ -66,8 +56,22 @@ const Header = () => {
             )}
           </svg>
         </div>
+        <Link href="/">
+          <div className="logo" onClick={handleLogoClick}>
+            <Logo />
+          </div>
+        </Link>
+        {/* <div className="lg:hidden flex">
+          <Cart />
+          {isMobileActive && layout}
+        </div> */}
       </div>
-      {isMobileActive ? layout : <div className="hidden lg:flex flex-1 items-center">{layout}</div>}
+      <div className="hidden">
+        <NavMenu onItemClick={() => setMobileActive(false)} />
+        <Cart />
+        {layout}
+      </div>
+      {/* {isMobileActive ? layout : <div className="hidden lg:flex flex-1 items-center">{layout}</div>} */}
       <style jsx>
         {`
           header {

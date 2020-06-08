@@ -243,17 +243,12 @@ const NavMenu = ({ onItemClick }) => {
       sublinks: categories,
     },
     {
-      title: 'Livrare',
-      link: '/delivery',
-    },
-    {
       title: 'Contacte',
       link: '/#contacts',
     },
-
     {
-      title: 'Despre noi',
-      link: '/#about-us',
+      title: 'Livrare',
+      link: '/delivery',
     },
   ];
 

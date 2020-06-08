@@ -28,14 +28,14 @@ const LanguagePicker = () => {
   const handleClick = () => {};
 
   return (
-    <div className="relative language text-xl uppercase font-black">
-      <div className="uppercase">{value.title}</div>
+    <div className="relative language text-2xl uppercase cursor-pointer">
+      <div className="font-black">{value.title}</div>
       <div className="absolute w-full border-2 border-yellow rounded"></div>
       <Dropdown
         items={languages}
         renderItem={(item) => {
           return (
-            <span className="hover:text-yellow" onClick={handleClick}>
+            <span className="hover:text-yellow font-black" onClick={handleClick}>
               {item.title}
             </span>
           );
@@ -43,10 +43,6 @@ const LanguagePicker = () => {
       />
       <style jsx>
         {`
-          .language {
-            cursor: pointer;
-          }
-
           .language :global(.dropdown-container) {
             transform: translateX(-25px);
           }
