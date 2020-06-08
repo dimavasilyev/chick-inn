@@ -8,7 +8,7 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
   return (
     <div onClick={onClick} className="product-short bg-black">
       <img src={mainImageObj?.src} />
-      <div className="custom-grid md:mobile-custom-grid p-6 items-center">
+      <div className="custom-grid lg:mobile-custom-grid p-6 items-center">
         <div className="text-4xl justify-centername font-black">{name}</div>
         <div className="text-2xl weight font-black">{weight ? `${weight}g` : ''}</div>
         <div className="text-3xl price font-black">{price} lei</div>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import ProductsList from '../components/products-list/products-list';
+import Slider from '../components/slider';
 import api from '../api';
 
 // import chickinnImg from '../assets/chickinn.jpg';
@@ -1106,6 +1107,7 @@ const Index = ({
 }) => {
   return (
     <Layout>
+      <Slider />
       <ProductsList categoriesWithProducts={categoriesWithProducts} />
     </Layout>
   );

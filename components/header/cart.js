@@ -10,7 +10,7 @@ const Delivery = () => {
   const { total } = useCart();
 
   return (
-    <div className="cart-container hidden md:block">
+    <div className="cart-container hidden lg:block">
       <IconContainer width={100}>
         <Link href="/cart">
           <CartIcon />

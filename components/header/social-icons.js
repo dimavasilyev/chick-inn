@@ -10,7 +10,7 @@ const facebookLink = 'https://www.facebook.com/Chickenmd-112663703753324';
 const SocialIcons = () => {
   return (
     <div>
-      <ul className="flex items-center md:ml-10">
+      <ul className="flex items-center lg:ml-10">
         <li>
           <a target="_blank" href={instaLink}>
             <IconContainer width={100}>

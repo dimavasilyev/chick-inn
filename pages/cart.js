@@ -7,7 +7,7 @@ import OrderForm from '../components/order-form';
 const Cart = () => {
   return (
     <Layout>
-      <div className="cart-container bg-black sm:mx-16 md:mx-40 p-8">
+      <div className="cart-container bg-black sm:mx-16 lg:mx-40 p-8">
         <CartProductsList />
         <OrderForm />
       </div>

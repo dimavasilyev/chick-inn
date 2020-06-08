@@ -6,11 +6,11 @@ import backgroundImage from '../assets/background.jpg';
 
 const Layout = ({ children }) => {
   return (
-    <main className="main-container">
+    <main className="main-container ">
       <Meta />
-      <div className="container text-white">
+      <div className="container text-white ">
         <Header />
-        <div className="content">{children}</div>
+        <div className="content px-8 lg:px-0">{children}</div>
       </div>
       <div className="mt-auto">
         <Footer />
