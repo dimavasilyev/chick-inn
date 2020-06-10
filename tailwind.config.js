@@ -10,6 +10,9 @@ module.exports = {
         yellow: '#ECBE02',
         red: '#D31116',
       },
+      screens: {
+        mini: '435px',
+      },
     },
   },
 };

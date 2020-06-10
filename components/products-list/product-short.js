@@ -8,11 +8,17 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
   return (
     <div onClick={onClick} className="product-short bg-black">
       <img src={mainImageObj?.src} />
-      <div className="custom-grid lg:mobile-custom-grid p-6 items-center">
-        <div className="text-4xl justify-centername font-black">{name}</div>
-        <div className="text-2xl weight font-black">{weight ? `${weight}g` : ''}</div>
-        <div className="text-3xl price font-black">{price} lei</div>
-        <Button className="button">Adauga in cos</Button>
+      <div className="p-6 mini:p-8  items-center">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-3xl mini:text-4xl justify-center font-black name mr-8">{name}</div>
+          <div className="text-xl mini:text-2xl weight font-black">
+            {weight ? `${weight}g` : ''}
+          </div>
+        </div>
+        <div className="flex items-center justify-between">
+          <Button className="button">Adauga in cos</Button>
+          <div className="text-2xl mini:text-3xl price font-black">{price} lei</div>
+        </div>
       </div>
       <style jsx>
         {`
@@ -21,38 +27,6 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
             border-radius: 25px;
             overflow: hidden;
             box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-          }
-
-          .custom-grid {
-            display: grid;
-            grid-gap: 1em;
-            grid-template-areas:
-              'name weight'
-              'button price';
-          }
-
-          .mobile-custom-grid {
-            display: grid;
-            grid-template-areas:
-              'name weight'
-              'button price';
-          }
-
-          .name {
-            grid-area: name;
-          }
-          .weight {
-            grid-area: weight;
-            align-self: end;
-            margin-bottom: 0.25em;
-            justify-self: end;
-          }
-          .button {
-            grid-area: button;
-          }
-          .price {
-            grid-area: price;
-            justify-self: end;
           }
 
           img {

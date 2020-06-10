@@ -2,29 +2,17 @@ import React from 'react';
 
 import { Counter } from 'components/shared';
 
-const Ingridient = ({ id, title, weight, price, amount = 0 }) => {
-  return (
-    <div className="ingridient flex items-center mb-2">
-      <Counter />
-      <div className="pl-2">
-        {title} - {weight} {price}g лей
-      </div>
-      <style jsx>{`
-        .ingridient {
-        }
+const Ingridient = ({ id, title, weight, price, amount = 0, onChange }) => {
+  const handleChange = (amount) => {
+    onChange(id, amount);
+  };
 
-        .control {
-          display: flex;
-          justify-content: center;
-          width: 30px;
-          min-width: 30px;
-          height: 30px;
-          border-radius: 5px;
-          line-height: 28px;
-          font-weight: 600;
-          cursor: pointer;
-        }
-      `}</style>
+  return (
+    <div className="flex items-center">
+      <Counter onChange={handleChange} amount={amount} />
+      <div className="pl-2 text-xl">
+        {title} {weight}g - {price} lei
+      </div>
     </div>
   );
 };

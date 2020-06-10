@@ -18,7 +18,7 @@ const Counter = ({ amount = 0, onChange }) => {
       <button onClick={decrease} className="bg-yellow">
         -
       </button>
-      <div className="px-2">{amount}</div>
+      <div className="px-3 text-xl">{amount}</div>
       <button onClick={increase} className="bg-yellow">
         +
       </button>
@@ -27,13 +27,14 @@ const Counter = ({ amount = 0, onChange }) => {
           button {
             display: flex;
             justify-content: center;
-            width: 30px;
-            min-width: 30px;
-            height: 30px;
-            border-radius: 5px;
-            line-height: 28px;
-            font-weight: 600;
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 20px;
+            border-radius: 3px;
+            line-height: 18px;
             cursor: pointer;
+            outline: none;
           }
         `}
       </style>

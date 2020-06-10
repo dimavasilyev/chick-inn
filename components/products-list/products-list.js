@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import ProductShort from './product-short';
-import ProductExtended from './prooduct-extended';
+import ProductExtended from './product-extended';
 
 import { sortByMenuOrder, ExtendedProductsViewTypes, viewTypes } from 'helpers';
 
