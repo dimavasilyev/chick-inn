@@ -10,8 +10,8 @@ const Delivery = () => {
   const { total } = useCart();
 
   return (
-    <div className="cart-container ">
-      <IconContainer width={100}>
+    <div className="cart-container w-24 cursor-pointer">
+      <IconContainer>
         <Link href="/cart">
           <CartIcon />
         </Link>
@@ -35,6 +35,8 @@ const Delivery = () => {
           top: 33px;
           font-size: 17px;
           font-weight: 600;
+          top: 55%;
+          right: 20%;
         }
       `}</style>
     </div>

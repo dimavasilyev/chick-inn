@@ -10,7 +10,9 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
       <img src={mainImageObj?.src} />
       <div className="p-6 mini:p-8  items-center">
         <div className="flex items-center justify-between mb-4">
-          <div className="text-3xl mini:text-4xl justify-center font-black name mr-8">{name}</div>
+          <div className="text-3xl mini:text-4xl justify-center font-black name mr-8 hover:text-yellow">
+            {name}
+          </div>
           <div className="text-xl mini:text-2xl weight font-black">
             {weight ? `${weight}g` : ''}
           </div>

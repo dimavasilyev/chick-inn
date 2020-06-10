@@ -6,6 +6,7 @@ import NavMenu from './nav-menu';
 import SocialIcons from './social-icons';
 import LanguagePicker from './language-picker';
 import Cart from './cart';
+import { footerChickinnSvg } from '../../helpers';
 
 const Header = () => {
   const [isMobileActive, setMobileActive] = useState(false);
@@ -24,17 +25,19 @@ const Header = () => {
     main.scrollTop = 0;
   };
 
-  const layout = (
-    <div className="flex lg:flex-row items-center">
+  const socialAndLanguage = (
+    <>
       <SocialIcons />
       <LanguagePicker />
-    </div>
+    </>
   );
+
+  const navMenu = <NavMenu onItemClick={() => setMobileActive(false)} />;
 
   return (
     <header className="bg-black lg:flex items-center container lg:pr-10 py-4">
-      <div className="flex items-center justify-between">
-        <div className="lg:hidden cursor-pointer ml-4" onClick={handleBurgerClick}>
+      <div className="flex items-center justify-between h-full w-full">
+        <div className="lg:hidden cursor-pointer ml-4 mt-1 w-20" onClick={handleBurgerClick}>
           <svg
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -56,28 +59,37 @@ const Header = () => {
             )}
           </svg>
         </div>
-        <Link href="/">
-          <div className="logo" onClick={handleLogoClick}>
-            <Logo />
+        {isMobileActive ? (
+          <div className="lg:hidden h-full flex items-center mr-8">{socialAndLanguage}</div>
+        ) : (
+          <Link href="/">
+            <div className="logo" onClick={handleLogoClick}>
+              <Logo />
+            </div>
+          </Link>
+        )}
+        <div className="flex items-center lg:flex-1">
+          <div className="hidden lg:flex lg:items-center lg:mr-8 flex-1">
+            <div className="flex-1">{navMenu}</div>
+            {socialAndLanguage}
           </div>
-        </Link>
-        {/* <div className="lg:hidden flex">
           <Cart />
-          {isMobileActive && layout}
-        </div> */}
+        </div>
       </div>
-      <div className="hidden">
-        <NavMenu onItemClick={() => setMobileActive(false)} />
-        <Cart />
-        {layout}
-      </div>
-      {/* {isMobileActive ? layout : <div className="hidden lg:flex flex-1 items-center">{layout}</div>} */}
+      {isMobileActive && (
+        <div className="flex items-center h-full">
+          {navMenu}
+          <div className="mt-12 lg:-mt-4 lg:ml-auto lg:w-1/4">{footerChickinnSvg}</div>
+        </div>
+      )}
       <style jsx>
         {`
           header {
             z-index: 999;
             position: fixed;
             border-radius: 0 0 15px 15px;
+            min-height: 100px;
+            padding-top: ${isMobileActive && '23px'};
           }
 
           .logo {

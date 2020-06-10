@@ -13,9 +13,13 @@ const Button = ({ children, className, ...props }) => {
         {`
           .button {
             height: 57px;
-            box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
             border-radius: 25px;
             outline: none;
+            box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
+          }
+
+          .button:active {
+            box-shadow: inset 0px 5px 6px 0px rgba(0, 0, 0, 0.5);
           }
         `}
       </style>

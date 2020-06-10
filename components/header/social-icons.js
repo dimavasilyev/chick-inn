@@ -21,7 +21,7 @@ const SocialIcons = () => {
         <li>
           <a target="_blank" href={facebookLink}>
             <IconContainer width={100}>
-              <FacebookIcon />
+              <FacebookIcon className="mt-1" />
             </IconContainer>
           </a>
         </li>
