@@ -35,7 +35,11 @@ const Header = () => {
   const navMenu = <NavMenu onItemClick={() => setMobileActive(false)} />;
 
   return (
-    <header className="bg-black lg:flex items-center container lg:pr-10 py-4">
+    <header
+      className={`bg-black lg:flex items-center container lg:pr-10  lg:pb-0 py-4 ${
+        isMobileActive ? 'pb-6' : ''
+      }`}
+    >
       <div className="flex items-center justify-between h-full w-full">
         <div className="lg:hidden cursor-pointer ml-4 mt-1 w-20" onClick={handleBurgerClick}>
           <svg
@@ -77,10 +81,18 @@ const Header = () => {
         </div>
       </div>
       {isMobileActive && (
-        <div className="flex items-center h-full">
-          {navMenu}
-          <div className="mt-12 lg:-mt-4 lg:ml-auto lg:w-1/4">{footerChickinnSvg}</div>
-        </div>
+        <>
+          <div
+            className="lg:hidden absolute border-2 border-yellow rounded mt-4"
+            style={{ right: '1rem', left: '1rem' }}
+          />
+          <div className="flex items-center h-full mt-4">
+            {navMenu}
+            <div className="mt-8 mr-6 lg:mr-0 lg:-mt-4 lg:ml-auto lg:w-1/4">
+              {footerChickinnSvg}
+            </div>
+          </div>
+        </>
       )}
       <style jsx>
         {`
