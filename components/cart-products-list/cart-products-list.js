@@ -7,7 +7,7 @@ const CartProductsList = () => {
   const { removeItem, items } = useCart();
 
   return (
-    <div>
+    <div className="mb-16">
       {items.map((item) => (
         <CartProduct key={item.id} {...item} onRemove={() => removeItem(item.id)} />
       ))}

@@ -10,7 +10,7 @@ const Cart = () => {
 
   return (
     <Layout>
-      <div className="cart-container bg-black sm:mx-16 lg:mx-40 p-6 lg:p-8">
+      <div className="cart-container bg-black lg:w-1/2 mx-auto p-6 lg:p-8">
         <CartProductsList />
         {items.length > 0 && <OrderForm />}
       </div>

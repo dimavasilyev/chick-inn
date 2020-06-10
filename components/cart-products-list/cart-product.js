@@ -4,11 +4,44 @@ import { Counter } from 'components/shared';
 
 const CartProduct = ({ title, amount, price, onRemove }) => {
   return (
-    <div>
-      <div>{title}</div>
-      <Counter amount={amount} />
-      <div>{price}</div>
-      <div onClick={onRemove}>del</div>
+    <div className="flex mb-6 items-center">
+      <img className="w-16 h-16 lg:h-32 lg:w-32 mr-4 lg:mr-8" />
+      <div>
+        <div className="text-2xl lg:text-4xl leading-none title pb-3 lg:pb-6" title={title}>
+          {title}
+        </div>
+        <div className="flex justify-between">
+          <Counter amount={amount} />
+          <div className="text-xl lg:text-2xl">{price} lei</div>
+        </div>
+      </div>
+      <div onClick={onRemove} className="mb-10 lg:mb-16 ml-4 cursor-pointer">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 23 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M0.826507 0.826506C-0.275501 1.92851 -0.275503 3.71522 0.826506 4.81723L7.31891 11.3096L0.83418 17.7944C-0.267828 18.8964 -0.267828 20.6831 0.83418 21.7851C1.93619 22.8871 3.7229 22.8871 4.8249 21.7851L11.3096 15.3004L17.7871 21.7778C18.8891 22.8798 20.6758 22.8798 21.7778 21.7778C22.8798 20.6758 22.8798 18.8891 21.7778 17.7871L15.3004 11.3096L21.7855 4.82451C22.8875 3.7225 22.8875 1.9358 21.7855 0.833787C20.6835 -0.268221 18.8968 -0.268223 17.7948 0.833786L11.3096 7.31891L4.81723 0.826506C3.71522 -0.275502 1.92852 -0.275502 0.826507 0.826506Z"
+            fill="#D31116"
+          />
+        </svg>
+      </div>
+      <style jsx>
+        {`
+          .title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 200px;
+            flex: 1;
+          }
+        `}
+      </style>
     </div>
   );
 };

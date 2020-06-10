@@ -27,12 +27,13 @@ const Counter = ({ amount = 0, onChange }) => {
           button {
             display: flex;
             justify-content: center;
+            align-items: center;
             width: 20px;
             min-width: 20px;
             height: 20px;
-            font-size: 20px;
+            font-size: 18px;
             border-radius: 3px;
-            line-height: 18px;
+            line-height: 20px;
             cursor: pointer;
             outline: none;
           }

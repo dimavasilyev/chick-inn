@@ -23,7 +23,7 @@ const Deliver = () => {
         <ul className="text-xl lg:text-2xl">
           {items.map((item) => (
             <li className="flex mt-3">
-              <div className="w-4 bg-yellow h-4 mr-3 rounded-full mt-2" />
+              <div className="w-4 bg-yellow h-4 mr-3 rounded-full mt-3" />
               <span>{item.text}</span>
             </li>
           ))}
