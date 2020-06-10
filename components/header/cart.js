@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
+import { IconContainer } from '../shared';
+import { useCart } from '../../hooks';
 import CartIcon from '../../assets/cart-icon.svg';
 
-import { IconContainer } from '../shared';
-import { useCart } from '../cart-provider/cart-provider';
-
-const Delivery = () => {
+const Cart = () => {
   const { total } = useCart();
 
   return (
     <div className="cart-container w-24 cursor-pointer">
       <IconContainer>
         <Link href="/cart">
-          <CartIcon />
+          <div>
+            <CartIcon />
+          </div>
         </Link>
         {total > 0 && (
           <div className="counter bg-yellow flex items-center justify-center leading-4">
@@ -43,4 +44,4 @@ const Delivery = () => {
   );
 };
 
-export default Delivery;
+export default Cart;

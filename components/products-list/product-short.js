@@ -8,18 +8,16 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
   return (
     <div onClick={onClick} className="product-short bg-black">
       <img src={mainImageObj?.src} />
-      <div className="p-6 mini:p-8  items-center">
+      <div className="p-6 sm:p-8  items-center">
         <div className="flex items-center justify-between mb-4">
-          <div className="text-3xl mini:text-4xl justify-center font-black name mr-8 hover:text-yellow">
+          <div className="text-3xl sm:text-4xl justify-center font-black name mr-8 hover:text-yellow">
             {name}
           </div>
-          <div className="text-xl mini:text-2xl weight font-black">
-            {weight ? `${weight}g` : ''}
-          </div>
+          <div className="text-xl sm:text-2xl weight font-black">{weight ? `${weight}g` : ''}</div>
         </div>
         <div className="flex items-center justify-between">
           <Button className="button">Adauga in cos</Button>
-          <div className="text-2xl mini:text-3xl price font-black">{price} lei</div>
+          <div className="text-2xl sm:text-3xl price font-black">{price} lei</div>
         </div>
       </div>
       <style jsx>

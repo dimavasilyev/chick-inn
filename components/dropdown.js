@@ -35,6 +35,7 @@ const Dropdown = ({ items, renderItem, className }) => {
             width: fit-content;
             transform: translate(20px);
             border-radius: 18px;
+            z-index: 9;
           }
         `}
       </style>

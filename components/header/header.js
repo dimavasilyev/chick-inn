@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-black lg:flex items-center container lg:pr-10  lg:pb-0 py-4 ${
+      className={`bg-black lg:flex items-center container lg:pr-8  lg:pb-0 lg:pt-0 py-4 ${
         isMobileActive ? 'pb-6' : ''
       }`}
     >
@@ -86,7 +86,7 @@ const Header = () => {
             className="lg:hidden absolute border-2 border-yellow rounded mt-4"
             style={{ right: '1rem', left: '1rem' }}
           />
-          <div className="flex items-center h-full mt-4">
+          <div className="flex items-center h-full mt-8">
             {navMenu}
             <div className="mt-8 mr-6 lg:mr-0 lg:-mt-4 lg:ml-auto lg:w-1/4">
               {footerChickinnSvg}

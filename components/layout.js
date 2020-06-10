@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <Meta />
       <div className="container text-white ">
         <Header />
-        <div className="content px-8 lg:px-0">{children}</div>
+        <div className="content px-6 sm:px-8 lg:px-0">{children}</div>
       </div>
       <div className="mt-auto">
         <Footer />

@@ -15,5 +15,7 @@ export default {
   getProducts: () => ({
     data: [],
   }),
-  makeOrder: () => {},
+  makeOrder: (values) => {
+    return Promise.resolve();
+  },
 };

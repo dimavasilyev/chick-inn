@@ -18,12 +18,12 @@ const ProductExtended = ({ id, name, description, weight, price, onClose, images
   const calculatedPrice = price;
 
   const mobileView = (
-    <div className="lg:hidden p-4 pt-20 rounded relative bg-black h-full">
+    <div className="lg:hidden p-4 pt-32 rounded relative bg-black h-full">
       <img className="" src={mainImageObj?.src} />
       <div
         onClick={onClose}
-        className="close-icon2__container absolute"
-        style={{ top: '20px', right: '20px' }}
+        className="close-icon2__container absolute cursor-pointer"
+        style={{ top: '6rem', right: '20px' }}
       >
         <svg
           width="23"
@@ -40,12 +40,10 @@ const ProductExtended = ({ id, name, description, weight, price, onClose, images
           />
         </svg>
       </div>
-      <div className="p-6 mini:p-8  items-center">
+      <div className="p-6 sm::p-8  items-center">
         <div className="flex items-center justify-between mb-4">
-          <div className="text-3xl mini:text-5xl justify-center font-black name mr-8">{name}</div>
-          <div className="text-xl mini:text-2xl weight font-black">
-            {weight ? `${weight}g` : ''}
-          </div>
+          <div className="text-3xl sm::text-5xl justify-center font-black name mr-8">{name}</div>
+          <div className="text-xl sm::text-2xl weight font-black">{weight ? `${weight}g` : ''}</div>
         </div>
         {description && <div className="text-lg mb-4">{cleanTextFromTags(description)}</div>}
         {showToppings && (
@@ -60,7 +58,7 @@ const ProductExtended = ({ id, name, description, weight, price, onClose, images
         )}
         <div className="flex items-center justify-between mt-6">
           <Button className="button ">Adauga in cos</Button>
-          <div className="text-2xl mini:text-4xl price font-black">{price} lei</div>
+          <div className="text-2xl sm::text-4xl price font-black">{price} lei</div>
         </div>
       </div>
     </div>
