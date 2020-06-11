@@ -2,20 +2,20 @@ import React from 'react';
 
 import { Counter } from 'components/shared';
 
-const CartProduct = ({ title, amount, price, onRemove }) => {
+const CartProduct = ({ name, quantity, totalPrice, image, onRemove, onItemQuantityChange }) => {
   return (
-    <div className="flex mb-6 items-center">
-      <img className="w-16 h-16 lg:h-32 lg:w-32 mr-4 lg:mr-8" />
+    <div className="flex mb-8 items-center">
+      <img className="w-16 lg:w-32 mr-4 lg:mr-8 rounded" src={image?.src} />
       <div>
-        <div className="text-2xl lg:text-4xl leading-none title pb-3 lg:pb-6" title={title}>
-          {title}
+        <div className="text-2xl lg:text-4xl leading-none title pb-3 lg:pb-3" title={name}>
+          {name}
         </div>
         <div className="flex justify-between">
-          <Counter amount={amount} />
-          <div className="text-xl lg:text-2xl">{price} lei</div>
+          <Counter amount={quantity} onChange={onItemQuantityChange} nonZero />
+          <div className="text-xl lg:text-2xl">{totalPrice} lei</div>
         </div>
       </div>
-      <div onClick={onRemove} className="mb-10 lg:mb-16 ml-4 cursor-pointer">
+      <div onClick={onRemove} className="mb-10 lg:mb-12 ml-4 cursor-pointer">
         <svg
           width="14"
           height="14"

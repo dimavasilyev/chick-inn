@@ -27,26 +27,26 @@ const schema = yup.object().shape({
 });
 
 const OrderForm = ({ onFinish }) => {
-  const { emptyCart, total } = useCart();
+  const { emptyCart, totalPrice, items } = useCart();
 
   const makeOrder = async (values) => {
-    await api.makeOrder(values);
+    await api.makeOrder(values, items);
   };
 
-  const { handleChange, handleSubmit, errors, handleBlur, values } = useFormik({
+  const { handleChange, handleSubmit, errors, values } = useFormik({
     validateOnChange: false,
     initialValues: {
       name: '',
       telefon: '',
       email: '',
-      delivery_method: 'delivery', // take_away
+      delivery_method: 'delivery',
       street: '',
-      house: undefined,
-      porch: undefined,
-      floor: undefined,
-      apartment: undefined,
-      payment_method: 'cod', //
-      rest: undefined,
+      // house: undefined,
+      // porch: undefined,
+      // floor: undefined,
+      // apartment: undefined,
+      // rest: undefined,
+      payment_method: 'cod',
       comment: '',
     },
     onSubmit: async (values) => {
@@ -264,7 +264,7 @@ const OrderForm = ({ onFinish }) => {
           <Button type="submit" className="mr-8">
             Comanda
           </Button>
-          <div className="text-2xl font-black">Total: {total} lei</div>
+          <div className="text-2xl font-black">Total: {totalPrice} lei</div>
         </div>
         <p className="error-text">{Object.keys(errors).length !== 0 && 'Sunt errori'}</p>
       </form>

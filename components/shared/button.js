@@ -14,6 +14,7 @@ const Button = ({ children, className, ...props }) => {
           .button {
             height: 57px;
             border-radius: 25px;
+            outline: none;
             box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
           }
 

@@ -3,52 +3,83 @@ import React, { createContext, useEffect, useState } from 'react';
 const CartContext = createContext({});
 
 const CartProvider = ({ children }) => {
-  const defaultItems = [
-    {
-      id: 1,
-      title: 'Chikinn Roll',
-      amount: 1,
-      price: 49,
-    },
-    {
-      id: 2,
-      title: 'Blue Cheese Roll',
-      amount: 2,
-      price: 69,
-    },
-  ];
+  const defaultItems = [];
 
   const [items, setItems] = useState(defaultItems);
 
-  const total = items.map((item) => item.quantity).reduce((a, b) => a + b, 0);
+  const totalCount = items.map((item) => item.quantity).reduce((a, b) => a + b, 0);
+  const totalPrice = items.map((item) => item.totalPrice).reduce((a, b) => a + b, 0);
 
-  const addItem = (newItem, amount) => {
-    const sameItem = items.find((item) => item.id === newItem.id);
+  const addItem = (product, amount) => {
+    const sameItem = items.find((item) => item.id === product.id);
 
     if (sameItem) {
       setItems(
         items.map((item) => {
           if (item.id === sameItem.id) {
-            return { ...item, amount: item.amount + 1 };
+            const cartItem = {
+              ...item,
+              quantity: item.quantity + 1,
+              totalPrice: item.totalPrice + product.price,
+            };
+
+            return cartItem;
           }
           return item;
         }),
       );
     } else {
-      setItems([...items, newItem]);
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        quantity: 1,
+        totalPrice: product.price,
+        image: product.image,
+        price: product.price,
+      };
+
+      setItems([...items, cartItem]);
     }
   };
 
   const removeItem = (id) => {
-    setItems(items.filter((item) => item !== id));
+    setItems(items.filter((item) => item.id !== id));
   };
 
   const emptyCart = () => {
     setItems([]);
   };
 
+  const changeItemQuantity = (id, quantity) => {
+    setItems(
+      items.map((item) => {
+        const newPrice =
+          quantity > item.quantity ? item.totalPrice + item.price : item.totalPrice - item.price;
+
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity,
+            totalPrice: newPrice,
+          };
+        }
+        return item;
+      }),
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, total, emptyCart }}>
+    <CartContext.Provider
+      value={{
+        items,
+        addItem,
+        removeItem,
+        totalCount,
+        totalPrice,
+        emptyCart,
+        changeItemQuantity,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Counter = ({ amount = 0, onChange }) => {
+const Counter = ({ amount = 0, onChange, nonZero = false }) => {
   const increase = () => {
     if (amount < 100) {
       onChange(amount + 1);
@@ -8,7 +8,7 @@ const Counter = ({ amount = 0, onChange }) => {
   };
 
   const decrease = () => {
-    if (amount > 0) {
+    if (amount > nonZero ? 1 : 0) {
       onChange(amount - 1);
     }
   };

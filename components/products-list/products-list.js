@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import ProductShort from './product-short';
 import ProductExtended from './product-extended';
 
+import { useCart } from '../../hooks';
+
 import { sortByMenuOrder, ExtendedProductsViewTypes, viewTypes } from 'helpers';
 
 const ProductsList = ({ categoriesWithProducts = [] }) => {
-  console.log('categoriesWithProducts:', categoriesWithProducts);
   const [extendedProductId, setExtendedProduct] = useState();
+  const { addItem } = useCart();
 
   const handleShortProductClick = (item) => {
     setExtendedProduct(item.id);
     if (item?.viewType === viewTypes.nonextended) {
-      console.log('add to cart');
+      addToCart();
     } else {
       setExtendedProduct(item.id);
     }
@@ -39,6 +41,7 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
                           {...item}
                           onClose={() => setExtendedProduct(undefined)}
                           viewType={item.viewType ?? viewTypes.select}
+                          addToCart={addItem}
                         />
                       )
                     }

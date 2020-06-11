@@ -4,13 +4,22 @@ import CartProduct from './cart-product';
 import { useCart } from '../../hooks';
 
 const CartProductsList = () => {
-  const { removeItem, items } = useCart();
+  const { removeItem, items, changeItemQuantity } = useCart();
 
   return (
     <div className="mb-16">
-      {items.map((item) => (
-        <CartProduct key={item.id} {...item} onRemove={() => removeItem(item.id)} />
-      ))}
+      {items.length > 0 ? (
+        items.map((item) => (
+          <CartProduct
+            key={item.id}
+            {...item}
+            onRemove={() => removeItem(item.id)}
+            onItemQuantityChange={(quantity) => changeItemQuantity(item.id, quantity)}
+          />
+        ))
+      ) : (
+        <div>Empty cart</div>
+      )}
     </div>
   );
 };

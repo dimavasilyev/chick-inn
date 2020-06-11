@@ -42,18 +42,18 @@ body {
     url('../assets/sf-ui/SFUIDisplay-Medium.woff') format('woff'),
     url('../assets/sf-ui/SFUIDisplay-Medium.ttf') format('truetype'),
     url('../assets/sf-ui/SFUIDisplay-Medium.svg#SFUIDisplay-Medium') format('svg');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SFUIDisplay-Black';
+  font-family: 'SFUIDisplay';
   src: url('../assets/sf-ui/SFUIDisplay-Black.eot?#iefix') format('embedded-opentype'),
     url('../assets/sf-ui/SFUIDisplay-Black.otf') format('opentype'),
     url('../assets/sf-ui/SFUIDisplay-Black.woff') format('woff'),
     url('../assets/sf-ui/SFUIDisplay-Black.ttf') format('truetype'),
     url('../assets/sf-ui/SFUIDisplay-Black.svg#SFUIDisplay-Black') format('svg');
-  font-weight: black;
+  font-weight: 900;
   font-style: normal;
 }
 
