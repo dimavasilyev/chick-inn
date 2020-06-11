@@ -6,7 +6,7 @@ import backgroundImage from '../assets/background.jpg';
 
 const Layout = ({ children }) => {
   return (
-    <main className="main-container ">
+    <main className="main-container">
       <Meta />
       <div className="container text-white ">
         <Header />
@@ -24,6 +24,7 @@ const Layout = ({ children }) => {
             background-image: url('${backgroundImage}');
             display: grid;
             scroll-behavior: smooth;
+            grid-template-rows: 1fr auto;
           }
 
           .content {
