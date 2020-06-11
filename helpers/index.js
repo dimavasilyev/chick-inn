@@ -1,3 +1,5 @@
+import Lockr from 'lockr';
+
 export const sortByMenuOrder = (items) => {
   return items.sort((a, b) => a?.menu_order - b?.menu_order);
 };
@@ -29,6 +31,38 @@ export const ExtendedProductsViewTypes = {
     views: [],
   },
 };
+
+export function getWithExpiry(key) {
+  const expiry = Lockr.get('chickinn_cart_expiry');
+  console.log('expiry:', expiry);
+  // if the item doesn't exist, return null
+  if (!expiry) {
+    return undefined;
+  }
+  const now = new Date();
+  console.log('now:', now.getTime());
+
+  if (now.getTime() > expiry) {
+    Lockr.rm('chickinn_cart_expiry');
+    Lockr.rm(key);
+    console.log('bigger');
+
+    return undefined;
+  }
+  return Lockr.get(key);
+}
+
+export function setWithExpiry(key, value, ttl) {
+  const now = new Date();
+
+  Lockr.set('chickinn_cart_expiry', now.getTime() + ttl);
+  Lockr.set(key, value);
+}
+
+export function rmLs(key) {
+  Lockr.rm('chickinn_cart_expiry');
+  Lockr.rm(key);
+}
 
 export const footerChickinnSvg = (
   <svg

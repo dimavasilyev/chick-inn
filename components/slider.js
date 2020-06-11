@@ -33,6 +33,8 @@ const Slider = () => {
         {`
           .carousel-root {
             outline: none;
+            border-radius: 45px;
+            overflow: hidden;
           }
         `}
       </style>

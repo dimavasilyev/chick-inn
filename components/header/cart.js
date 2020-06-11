@@ -6,19 +6,19 @@ import { useCart } from '../../hooks';
 import CartIcon from '../../assets/cart-icon.svg';
 
 const Cart = () => {
-  const { total } = useCart();
+  const { totalCount } = useCart();
 
   return (
-    <div className="cart-container w-24 cursor-pointer">
+    <div className="cart-container w-24 cursor-pointer font-normal">
       <IconContainer>
         <Link href="/cart">
           <div>
             <CartIcon />
           </div>
         </Link>
-        {total > 0 && (
+        {totalCount > 0 && (
           <div className="counter bg-yellow flex items-center justify-center leading-4">
-            {total}
+            {totalCount}
           </div>
         )}
       </IconContainer>
@@ -35,7 +35,6 @@ const Cart = () => {
           right: 20px;
           top: 33px;
           font-size: 17px;
-          font-weight: 600;
           top: 55%;
           right: 20%;
         }

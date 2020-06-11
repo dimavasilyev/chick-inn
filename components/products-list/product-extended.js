@@ -61,7 +61,7 @@ const ProductExtended = ({
           />
         </svg>
       </div>
-      <div className="p-6 sm::p-8  items-center">
+      <div className="p-6 sm:p-8 items-center">
         <div className="flex items-center justify-between mb-4">
           <div className="text-3xl sm::text-5xl justify-center font-black name mr-8">{name}</div>
           <div className="text-xl sm::text-2xl weight font-black">{weight ? `${weight}g` : ''}</div>
@@ -77,7 +77,7 @@ const ProductExtended = ({
             <SelectIngridient />
           </div>
         )}
-        <div className="flex items-center justify-between mt-6">
+        <div className="flex items-center justify-between mt-6 mb-32">
           <Button className="button" onClick={handleAddButton}>
             Adauga in cos
           </Button>
@@ -149,7 +149,6 @@ const ProductExtended = ({
             width: 25px;
             height: 25px;
             cursor: pointer;
-
             position: absolute;
             right: 0;
             top: -50px;

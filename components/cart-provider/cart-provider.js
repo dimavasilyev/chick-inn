@@ -1,16 +1,25 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+
+import { getWithExpiry, setWithExpiry, rmLs } from '../../helpers';
 
 const CartContext = createContext({});
 
 const CartProvider = ({ children }) => {
-  const defaultItems = [];
+  const [items, setItems] = useState([]);
 
-  const [items, setItems] = useState(defaultItems);
+  useEffect(() => {
+    const lsCartItems = getWithExpiry('chickinn_cart');
+    if (lsCartItems) setItems(lsCartItems);
+  }, []);
+
+  useEffect(() => {
+    setWithExpiry('chickinn_cart', items, 3600000);
+  }, [items]);
 
   const totalCount = items.map((item) => item.quantity).reduce((a, b) => a + b, 0);
   const totalPrice = items.map((item) => item.totalPrice).reduce((a, b) => a + b, 0);
 
-  const addItem = (product, amount) => {
+  const addItem = (product) => {
     const sameItem = items.find((item) => item.id === product.id);
 
     if (sameItem) {

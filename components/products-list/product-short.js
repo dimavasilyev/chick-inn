@@ -8,7 +8,7 @@ const ProductShort = ({ id, name, weight, price, onClick, images }) => {
   return (
     <div onClick={onClick} className="product-short bg-black">
       <img src={mainImageObj?.src} />
-      <div className="p-6 sm:p-8  items-center">
+      <div className="p-4 sm:p-8  items-center">
         <div className="flex items-center justify-between mb-4">
           <div className="text-3xl sm:text-4xl justify-center font-black name mr-8 hover:text-yellow">
             {name}
