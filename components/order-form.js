@@ -15,7 +15,7 @@ const schema = yup.object().shape({
     .max(15, 'Prea lung')
     .required('Introduceti telefonul'),
   email: yup.string().email('Email incorect').required('Introduceti email-ul'),
-  delivery: yup.mixed().oneOf(['delivery', 'take_away']),
+  delivery_method: yup.mixed().oneOf(['delivery', 'take_away']),
   street: yup.string().required('Introduceti strada'),
   house: yup.string().required('Introduceti casa'),
   porch: yup.number(),
@@ -41,7 +41,7 @@ const OrderForm = () => {
       name: '',
       telefon: '',
       email: '',
-      delivery: 'delivery', // take_away
+      delivery_method: 'delivery', // take_away
       street: '',
       house: undefined,
       porch: undefined,
@@ -69,7 +69,9 @@ const OrderForm = () => {
         <div className="grid grid-cols-2 justify-between gap-8">
           <div>
             {/* Name */}
-            <label htmlFor="name">Numele*:</label>
+            <label htmlFor="name">
+              Numele<span className="text-red">*</span>:
+            </label>
             <input
               className={`input ${errors.name ? 'error' : ''}`}
               type="text"
@@ -82,7 +84,9 @@ const OrderForm = () => {
           </div>
           <div>
             {/* Telefon */}
-            <label htmlFor="telefon">Telefon*:</label>
+            <label htmlFor="telefon">
+              Telefon<span className="text-red">*</span>:
+            </label>
             <input
               className={`input ${errors.telefon ? 'error' : ''}`}
               type="text"
@@ -111,12 +115,26 @@ const OrderForm = () => {
         <div className=" w-full border-2 border-yellow rounded my-6" />
         <div>
           {/* Metoda de livrare */}
-          <label>Metoda de livrare</label>
+          <label>Metoda de livrare:</label>
+          <div className="flex mb-3">
+            <label htmlFor="delivery" className="checkbox-label__container mr-10">
+              Самовывоз
+              <input id="delivery" name="delivery_method" type="radio" checked="checked" />
+              <span className="checkmark"></span>
+            </label>
+            <label htmlFor="take_away" className="checkbox-label__container">
+              Доставка
+              <input id="take_away" name="delivery_method" type="radio" />
+              <span className="checkmark"></span>
+            </label>
+          </div>
         </div>
         <div className="grid grid-cols-2 justify-between gap-8">
           <div>
             {/* Strada */}
-            <label htmlFor="street">Strada*:</label>
+            <label htmlFor="street">
+              Strada<span className="text-red">*</span>:
+            </label>
             <input
               className={`input ${errors.street ? 'error' : ''}`}
               type="text"
@@ -129,7 +147,9 @@ const OrderForm = () => {
           </div>
           <div>
             {/* Casa */}
-            <label htmlFor="house">Casa*:</label>
+            <label htmlFor="house">
+              Casa<span className="text-red">*</span>:
+            </label>
             <input
               className={`input ${errors.house ? 'error' : ''}`}
               type="text"
@@ -144,7 +164,7 @@ const OrderForm = () => {
         <div className="grid grid-cols-3 gap-8">
           <div>
             {/* Подъезд */}
-            <label htmlFor="porch">Подъезд</label>
+            <label htmlFor="porch">Подъезд:</label>
             <input
               className={`input ${errors.porch ? 'error' : ''}`}
               type="number"
@@ -170,7 +190,7 @@ const OrderForm = () => {
           </div>
           <div>
             {/* Apartament */}
-            <label htmlFor="apartment">Apartament</label>
+            <label htmlFor="apartment">Apartament:</label>
             <input
               className={`input ${errors.apartment ? 'error' : ''}`}
               type="number"
@@ -185,12 +205,24 @@ const OrderForm = () => {
         <div className="w-full border-2 border-yellow rounded my-6" />
         <div>
           {/* Metoda de plata */}
-          <label>Metoda de plata</label>
+          <label>Metoda de plata:</label>
+          <div className="flex mb-3">
+            <label htmlFor="cod" className="checkbox-label__container mr-10">
+              Наличными
+              <input id="cod" name="payment_method" type="radio" checked="checked" />
+              <span className="checkmark"></span>
+            </label>
+            <label htmlFor="card" className="checkbox-label__container">
+              Картой
+              <input id="card" name="payment_method" type="radio" />
+              <span className="checkmark"></span>
+            </label>
+          </div>
         </div>
         <div className="w-full border-2 border-yellow rounded my-6" />
         <div>
           {/* Rest din */}
-          <label htmlFor="rest">Rest din</label>
+          <label htmlFor="rest">Rest din:</label>
           <input
             className={`input ${errors.rest ? 'error' : ''}`}
             type="number"
@@ -203,7 +235,7 @@ const OrderForm = () => {
         </div>
         <div>
           {/* Comentarii */}
-          <label htmlFor="comment">Comentarii</label>
+          <label htmlFor="comment">Comentarii:</label>
           <textarea className="input" name="comment" id="comment" onChange={handleChange} />
         </div>
         <div className="flex items-center mt-6">
@@ -224,6 +256,47 @@ const OrderForm = () => {
             font-size: 18px;
             display: block;
             margin-bottom: 6px;
+          }
+
+          .checkbox-label__container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 20px;
+            user-select: none;
+          }
+
+          /* Hide the browser's default checkbox */
+          .checkbox-label__container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+
+          /* Create a custom checkbox */
+          .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: 2px solid #ecbe02;
+          }
+
+          /* When the checkbox is checked, add a blue background */
+          .checkbox-label__container input:checked ~ .checkmark {
+            background-color: #ecbe02;
+          }
+
+          /* Show the checkmark when checked */
+          .checkbox-label__container input:checked ~ .checkmark:after {
+            display: block;
           }
         `}
       </style>
