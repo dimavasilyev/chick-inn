@@ -106,7 +106,7 @@ const OrderForm = ({ onFinish }) => {
           />
           <p className="error-text">{errors.email}</p>
         </div>
-        <div className=" w-full border-2 border-yellow rounded my-6" />
+        <div className=" w-full border-2 bg-yellow border-yellow rounded my-6" />
         <div>
           {/* Metoda de livrare */}
           <label>Metoda de livrare:</label>
@@ -210,7 +210,7 @@ const OrderForm = ({ onFinish }) => {
             />
           </div>
         </div>
-        <div className="w-full border-2 border-yellow rounded my-6" />
+        <div className="w-full border-2 bg-yellow border-yellow rounded my-6" />
         <div>
           {/* Metoda de plata */}
           <label>Metoda de plata:</label>
@@ -241,7 +241,7 @@ const OrderForm = ({ onFinish }) => {
             </label>
           </div>
         </div>
-        <div className="w-full border-2 border-yellow rounded my-6" />
+        <div className="w-full border-2 bg-yellow border-yellow rounded my-6" />
         <div>
           {/* Rest din */}
           <label htmlFor="rest">Rest din:</label>
@@ -266,7 +266,7 @@ const OrderForm = ({ onFinish }) => {
           </Button>
           <div className="text-2xl font-black">Total: {totalPrice} lei</div>
         </div>
-        <p className="error-text">{Object.keys(errors).length !== 0 && 'Sunt errori'}</p>
+        <p className="error-text">{Object.keys(errors).length !== 0 && 'Sunt erori'}</p>
       </form>
       <style jsx>
         {`

@@ -60,7 +60,7 @@ const Header = () => {
           </svg>
         </div>
         {isMobileActive ? (
-          <div className="lg:hidden h-full flex items-center mr-8">{socialAndLanguage}</div>
+          <div className="lg:hidden h-full flex items-center">{socialAndLanguage}</div>
         ) : (
           <Link href="/">
             <div className="logo" onClick={handleLogoClick}>
@@ -79,7 +79,7 @@ const Header = () => {
       {isMobileActive && (
         <>
           <div
-            className="lg:hidden absolute border-2 border-yellow rounded mt-4"
+            className="lg:hidden absolute border-2 border-yellow bg-yellow rounded mt-4"
             style={{ right: '1rem', left: '1rem' }}
           />
           <div className="flex items-center h-full mt-8">

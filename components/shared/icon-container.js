@@ -11,6 +11,7 @@ const IconContainer = ({ className, width, children }) => {
             width: ${width ? width + 'px' : 'auto'};
             cursor: pointer;
           }
+
           .icon-container svg {
             width: 100%;
           }

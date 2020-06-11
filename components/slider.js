@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { useWindowResize } from '../hooks';
 import DeliveryDesktopImg from '../assets/delivery-desktop.png';
-import DeliveryMobileImg from '../assets/delivery-mobile.png';
+import DeliveryMobileImg from '../assets/delivery-mobile.jpg';
 
 const Slider = () => {
   const { width } = useWindowResize();
@@ -29,11 +29,11 @@ const Slider = () => {
           <img src={deliveryImg} />
         </div>
       </Carousel>
-      <style jsx>
+      <style jsx global>
         {`
           .carousel-root {
             outline: none;
-            border-radius: 45px;
+            border-radius: 25px;
             overflow: hidden;
           }
         `}

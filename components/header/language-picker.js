@@ -30,7 +30,7 @@ const LanguagePicker = () => {
   return (
     <div className="relative language text-2xl uppercase cursor-pointer">
       <div className="font-black">{value.title}</div>
-      <div className="hidden lg:block absolute w-full border-2 border-yellow rounded" />
+      <div className="hidden lg:block absolute w-full border-2 bg-yellow border-yellow rounded" />
       <Dropdown
         items={languages}
         renderItem={(item) => {
