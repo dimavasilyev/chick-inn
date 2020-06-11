@@ -27,32 +27,31 @@ body {
 
 @font-face {
   font-family: 'Chick-inn';
-  src: url('../assets/chickinn/Chick-inn.eot?#iefix') format('embedded-opentype'),
-    url('../assets/chickinn/Chick-inn.woff') format('woff'),
-    url('../assets/chickinn/Chick-inn.ttf') format('truetype'),
-    url('../assets/chickinn/Chick-inn.svg#Chick.inn') format('svg');
+  src: url('/fonts/Chick-inn.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/Chick-inn.woff') format('woff'), url('/fonts/Chick-inn.ttf') format('truetype'),
+    url('/fonts/Chick-inn.svg#Chick.inn') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SFUIDisplay';
-  src: url('../assets/sf-ui/SFUIDisplay-Medium.eot?#iefix') format('embedded-opentype'),
-    url('../assets/sf-ui/SFUIDisplay-Medium.otf') format('opentype'),
-    url('../assets/sf-ui/SFUIDisplay-Medium.woff') format('woff'),
-    url('../assets/sf-ui/SFUIDisplay-Medium.ttf') format('truetype'),
-    url('../assets/sf-ui/SFUIDisplay-Medium.svg#SFUIDisplay-Medium') format('svg');
+  src: url('/fonts/SFUIDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/SFUIDisplay-Medium.otf') format('opentype'),
+    url('/fonts/SFUIDisplay-Medium.woff') format('woff'),
+    url('/fonts/SFUIDisplay-Medium.ttf') format('truetype'),
+    url('/fonts/SFUIDisplay-Medium.svg#SFUIDisplay-Medium') format('svg');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SFUIDisplay';
-  src: url('../assets/sf-ui/SFUIDisplay-Black.eot?#iefix') format('embedded-opentype'),
-    url('../assets/sf-ui/SFUIDisplay-Black.otf') format('opentype'),
-    url('../assets/sf-ui/SFUIDisplay-Black.woff') format('woff'),
-    url('../assets/sf-ui/SFUIDisplay-Black.ttf') format('truetype'),
-    url('../assets/sf-ui/SFUIDisplay-Black.svg#SFUIDisplay-Black') format('svg');
+  src: url('/fonts/SFUIDisplay-Black.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/SFUIDisplay-Black.otf') format('opentype'),
+    url('/fonts/SFUIDisplay-Black.woff') format('woff'),
+    url('/fonts/SFUIDisplay-Black.ttf') format('truetype'),
+    url('/fonts/SFUIDisplay-Black.svg#SFUIDisplay-Black') format('svg');
   font-weight: 900;
   font-style: normal;
 }

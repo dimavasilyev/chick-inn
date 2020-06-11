@@ -8,9 +8,7 @@ const Meta = ({ title }) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel="icon" href={favicon} />
 
-      <meta name="theme-color" content="#ECBE02" />
-      <link rel="icon" href="favicon.svg" />
-      <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
+    
       <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     </Head>
   );
