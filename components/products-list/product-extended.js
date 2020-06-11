@@ -125,7 +125,7 @@ const ProductExtended = ({
             </div>
           )}
           <div className="flex items-center mt-10 mb-32">
-            <Button className="mr-8 rounded big-button text-4xl" onClick={handleAddButton}>
+            <Button className="mr-8 rounded big-button leading-none" onClick={handleAddButton}>
               Adauga in cos
             </Button>
             <div className="text-5xl font-black ">{calculatedPrice} lei</div>
@@ -170,9 +170,9 @@ const ProductExtended = ({
             overflow: hidden;
           }
           .product-extended button.big-button {
-            height: 100px;
-            font-size: 2.5rem;
-            padding: 0 25px;
+            height: 80px;
+            font-size: 2rem;
+            padding: 20px 35px;
           }
         `}
       </style>
