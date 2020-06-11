@@ -8,7 +8,7 @@ const SelectIngridient = ({
 }) => {
   return (
     <div className="inline-flex items-center relative">
-      <select className="text-2xl bg-black appearance-none outline-none pr-8  cursor-pointer">
+      <select className="text-xl lg:text-2xl bg-black appearance-none outline-none pr-8  cursor-pointer">
         {items.map((item) => (
           <option key={item.id}>{item.title}</option>
         ))}

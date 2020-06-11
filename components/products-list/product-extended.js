@@ -19,7 +19,6 @@ const ProductExtended = ({
 }) => {
   useTitle(name);
   useKeyPress('Escape', onClose);
-  console.log(price, 'price');
 
   const [mainImageObj] = images;
   const views = ExtendedProductsViewTypes[viewType]?.views;
@@ -112,7 +111,7 @@ const ProductExtended = ({
             </div>
             <img className="float-right w-1/2" src={mainImageObj?.src} />
           </div>
-          <div className="text-5xl font-black mb-6 name">{name}</div>
+          <div className="text-5xl font-black mb-6 name leading-none">{name}</div>
           {description && <div className="text-3xl mb-8">{cleanTextFromTags(description)}</div>}
           <div className="text-4xl weight font-black">{weight ? `${weight}g` : ''}</div>
           {showToppings && (

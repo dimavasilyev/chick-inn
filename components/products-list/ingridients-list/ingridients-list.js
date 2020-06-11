@@ -12,7 +12,10 @@ const IngridientsList = () => {
 
   return (
     <div className="ingridients-list font-normal">
-      <div onClick={toggleState} className="cursor-pointer text-2xl flex items-center mb-4">
+      <div
+        onClick={toggleState}
+        className="cursor-pointer text-xl lg:text-2xl flex items-center mb-4"
+      >
         <span className="mr-2">Adauga in roll</span>
         <svg
           width="20"
