@@ -28,7 +28,7 @@ const Header = () => {
   const socialAndLanguage = (
     <>
       <SocialIcons />
-      <LanguagePicker />
+      {/* <LanguagePicker /> */}
     </>
   );
 

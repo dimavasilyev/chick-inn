@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-import { getWithExpiry, setWithExpiry, rmLs } from '../../helpers';
+import { getWithExpiry, setWithExpiry } from '../../helpers';
 
 const CartContext = createContext({});
 

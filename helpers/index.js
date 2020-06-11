@@ -34,18 +34,15 @@ export const ExtendedProductsViewTypes = {
 
 export function getWithExpiry(key) {
   const expiry = Lockr.get('chickinn_cart_expiry');
-  console.log('expiry:', expiry);
   // if the item doesn't exist, return null
   if (!expiry) {
     return undefined;
   }
   const now = new Date();
-  console.log('now:', now.getTime());
 
   if (now.getTime() > expiry) {
     Lockr.rm('chickinn_cart_expiry');
     Lockr.rm(key);
-    console.log('bigger');
 
     return undefined;
   }
@@ -57,11 +54,6 @@ export function setWithExpiry(key, value, ttl) {
 
   Lockr.set('chickinn_cart_expiry', now.getTime() + ttl);
   Lockr.set(key, value);
-}
-
-export function rmLs(key) {
-  Lockr.rm('chickinn_cart_expiry');
-  Lockr.rm(key);
 }
 
 export const footerChickinnSvg = (
