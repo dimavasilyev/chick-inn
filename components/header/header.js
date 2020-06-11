@@ -35,11 +35,7 @@ const Header = () => {
   const navMenu = <NavMenu onItemClick={() => setMobileActive(false)} />;
 
   return (
-    <header
-      className={`bg-black lg:flex items-center container lg:pr-8  lg:pb-0 lg:pt-0 py-4 ${
-        isMobileActive ? 'pb-6' : ''
-      }`}
-    >
+    <header className={`bg-black lg:flex items-center container lg:pr-8  lg:pb-0 lg:pt-0 py-4`}>
       <div className="flex items-center justify-between h-full w-full">
         <div className="lg:hidden cursor-pointer ml-4 mt-1 w-20" onClick={handleBurgerClick}>
           <svg

@@ -172,7 +172,7 @@ const ProductExtended = ({
           .product-extended button.big-button {
             height: 100px;
             font-size: 2.5rem;
-            padding: 0 40px;
+            padding: 0 25px;
           }
         `}
       </style>
