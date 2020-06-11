@@ -30,7 +30,7 @@ const Dropdown = ({ items, renderItem, className }) => {
         {`
           .dropdown-container {
             display: none;
-            font-family: 'SF UI Display';
+            font-family: 'SFUIDisplay';
             text-transform: initial;
             width: fit-content;
             transform: translate(20px);
