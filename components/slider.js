@@ -36,6 +36,11 @@ const Slider = () => {
             border-radius: 25px;
             overflow: hidden;
           }
+
+          .slider-wrapper {
+            border-radius: 25px;
+            overflow: hidden;
+          }
         `}
       </style>
     </div>
