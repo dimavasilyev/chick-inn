@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -26,16 +26,14 @@ const schema = yup.object().shape({
   comment: yup.string(),
 });
 
-const OrderForm = () => {
-  const [formSuccess, setSuccess] = useState(false);
-  const { emptyCart } = useCart();
-  const sum = 49;
+const OrderForm = ({ onFinish }) => {
+  const { emptyCart, total } = useCart();
 
   const makeOrder = async (values) => {
     await api.makeOrder(values);
   };
 
-  const { handleChange, handleSubmit, errors, handleBlur } = useFormik({
+  const { handleChange, handleSubmit, errors, handleBlur, values } = useFormik({
     validateOnChange: false,
     initialValues: {
       name: '',
@@ -54,14 +52,10 @@ const OrderForm = () => {
     onSubmit: async (values) => {
       await makeOrder(values);
       emptyCart();
-      setSuccess(true);
+      onFinish();
     },
     validationSchema: schema,
   });
-
-  if (formSuccess) {
-    return <div className="text-3xl">thank you</div>;
-  }
 
   return (
     <div className="flex flex-col">
@@ -118,13 +112,27 @@ const OrderForm = () => {
           <label>Metoda de livrare:</label>
           <div className="flex mb-3">
             <label htmlFor="delivery" className="checkbox-label__container mr-10">
-              Самовывоз
-              <input id="delivery" name="delivery_method" type="radio" checked="checked" />
+              Доставка
+              <input
+                id="delivery"
+                name="delivery_method"
+                type="radio"
+                onChange={handleChange}
+                value="delivery"
+                checked={values.delivery_method === 'delivery'}
+              />
               <span className="checkmark"></span>
             </label>
             <label htmlFor="take_away" className="checkbox-label__container">
-              Доставка
-              <input id="take_away" name="delivery_method" type="radio" />
+              Самовывоз
+              <input
+                id="take_away"
+                name="delivery_method"
+                type="radio"
+                value="take_away"
+                onChange={handleChange}
+                checked={values.delivery_method === 'take_away'}
+              />
               <span className="checkmark"></span>
             </label>
           </div>
@@ -209,12 +217,26 @@ const OrderForm = () => {
           <div className="flex mb-3">
             <label htmlFor="cod" className="checkbox-label__container mr-10">
               Наличными
-              <input id="cod" name="payment_method" type="radio" checked="checked" />
+              <input
+                id="cod"
+                name="payment_method"
+                type="radio"
+                value="cod"
+                onChange={handleChange}
+                checked={values.payment_method === 'cod'}
+              />
               <span className="checkmark"></span>
             </label>
             <label htmlFor="card" className="checkbox-label__container">
               Картой
-              <input id="card" name="payment_method" type="radio" />
+              <input
+                id="card"
+                name="payment_method"
+                type="radio"
+                value="card"
+                onChange={handleChange}
+                checked={values.payment_method === 'card'}
+              />
               <span className="checkmark"></span>
             </label>
           </div>
@@ -242,7 +264,7 @@ const OrderForm = () => {
           <Button type="submit" className="mr-8">
             Comanda
           </Button>
-          <div className="text-2xl font-black">Total: {sum} lei</div>
+          <div className="text-2xl font-black">Total: {total} lei</div>
         </div>
         <p className="error-text">{Object.keys(errors).length !== 0 && 'Sunt errori'}</p>
       </form>

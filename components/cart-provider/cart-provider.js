@@ -22,7 +22,7 @@ const CartProvider = ({ children }) => {
 
   const total = items.map((item) => item.quantity).reduce((a, b) => a + b, 0);
 
-  const addItem = (newItem) => {
+  const addItem = (newItem, amount) => {
     const sameItem = items.find((item) => item.id === newItem.id);
 
     if (sameItem) {
