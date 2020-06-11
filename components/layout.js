@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
         {`
           .main-container {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             overflow-y: scroll;
             background-image: url('${backgroundImage}');
             display: grid;
