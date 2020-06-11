@@ -18,6 +18,7 @@
     "formik": "^2.1.4",
     "lockr": "^0.8.5",
     "next": "^9.3.6",
+    "next-fonts": "^1.1.0",
     "next-images": "^1.4.0",
     "next-manifest": "^3.0.1",
     "nodemon": "^2.0.3",

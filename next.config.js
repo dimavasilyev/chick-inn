@@ -1,5 +1,6 @@
 const withImages = require('next-images');
 const withManifest = require('next-manifest');
+const withFonts = require('next-fonts');
 
 const defaults = {
   // next-manifest options
@@ -20,14 +21,16 @@ const defaults = {
   // ],
 };
 
-module.exports = withManifest(
-  withImages({
-    manifest: {
-      ...defaults,
-    },
-    webpack(config) {
-      config.resolve.modules.push(__dirname);
-      return config;
-    },
-  }),
+module.exports = withFonts(
+  withManifest(
+    withImages({
+      manifest: {
+        ...defaults,
+      },
+      webpack(config) {
+        config.resolve.modules.push(__dirname);
+        return config;
+      },
+    }),
+  ),
 );
