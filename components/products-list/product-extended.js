@@ -22,8 +22,9 @@ const ProductExtended = ({
 
   const [mainImageObj] = images;
   const views = ExtendedProductsViewTypes[viewType]?.views;
-  const showToppings = views.includes('toppings') || true;
-  const showSelect = views.includes('select');
+  const showToppings = views.includes('toppings') || false;
+  // const showSelect = views.includes('select') || false;
+  const showSelect = false;
 
   const calculatedPrice = price;
 
@@ -124,7 +125,7 @@ const ProductExtended = ({
               <SelectIngridient />
             </div>
           )}
-          <div className="flex items-center mt-10 mb-32">
+          <div className="flex items-center mt-56 mb-32 absolute">
             <Button className="mr-8 rounded big-button leading-none" onClick={handleAddButton}>
               Adauga in cos
             </Button>

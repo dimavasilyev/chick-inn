@@ -3,7 +3,6 @@ import React from 'react';
 import CartProduct from './cart-product';
 import { useCart } from '../../hooks';
 import { ghostChickinn } from '../../helpers';
-import GhostChickinn from '../../assets/transparent-chickinn.svg';
 
 const CartProductsList = () => {
   const { removeItem, items, changeItemQuantity } = useCart();
