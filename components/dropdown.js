@@ -4,7 +4,6 @@ const Dropdown = ({ items, renderItem, className }) => {
   const ref = useRef();
 
   const hanldeClick = async () => {
-    // ref.current.style.display = 'none';
     const stylesheet = document.styleSheets[0];
     await stylesheet.insertRule('.dropdown-container { display: none !important;}', 0);
     setTimeout(() => {
@@ -32,6 +31,7 @@ const Dropdown = ({ items, renderItem, className }) => {
             display: none;
             font-family: 'SFUIDisplay';
             text-transform: initial;
+            min-width: 60px;
             width: fit-content;
             transform: translate(20px);
             border-radius: 18px;
