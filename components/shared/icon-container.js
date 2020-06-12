@@ -15,6 +15,10 @@ const IconContainer = ({ className, width, children }) => {
           .icon-container svg {
             width: 100%;
           }
+
+          .icon-container:hover svg * {
+            fill: #ecbe02;
+          }
         `}
       </style>
     </div>

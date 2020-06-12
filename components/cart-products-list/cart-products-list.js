@@ -2,6 +2,8 @@ import React from 'react';
 
 import CartProduct from './cart-product';
 import { useCart } from '../../hooks';
+import { ghostChickinn } from '../../helpers';
+import GhostChickinn from '../../assets/transparent-chickinn.svg';
 
 const CartProductsList = () => {
   const { removeItem, items, changeItemQuantity } = useCart();
@@ -18,8 +20,16 @@ const CartProductsList = () => {
           />
         ))
       ) : (
-        <div>Empty cart</div>
+        <div className="empty w-1/2 mx-auto">{ghostChickinn}</div>
       )}
+      <style>
+        {`
+          .empty svg {
+            width: 100%;
+            height: 100%;
+          }
+        `}
+      </style>
     </div>
   );
 };
