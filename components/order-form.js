@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -28,9 +28,14 @@ const schema = yup.object().shape({
 
 const OrderForm = ({ onFinish }) => {
   const { emptyCart, totalPrice, items } = useCart();
+  const [isSubmitted, setSubmission] = useState(false);
 
   const makeOrder = async (values) => {
-    await api.makeOrder(values, items);
+    setSubmission(true);
+
+    if (!isSubmitted) {
+      await api.makeOrder(values, items, totalPrice);
+    }
   };
 
   const { handleChange, handleSubmit, errors, values } = useFormik({
@@ -56,6 +61,9 @@ const OrderForm = ({ onFinish }) => {
     },
     validationSchema: schema,
   });
+
+  const endPrice =
+    totalPrice < 250 && values.delivery_method === 'delivery' ? totalPrice + 35 : totalPrice;
 
   return (
     <div className="flex flex-col">
@@ -112,7 +120,7 @@ const OrderForm = ({ onFinish }) => {
           <label>Metoda de livrare:</label>
           <div className="flex mb-3">
             <label htmlFor="delivery" className="checkbox-label__container mr-10">
-              Доставка
+              Livrare (35 lei)
               <input
                 id="delivery"
                 name="delivery_method"
@@ -124,7 +132,7 @@ const OrderForm = ({ onFinish }) => {
               <span className="checkmark"></span>
             </label>
             <label htmlFor="take_away" className="checkbox-label__container">
-              Самовывоз
+              La pachet
               <input
                 id="take_away"
                 name="delivery_method"
@@ -172,7 +180,7 @@ const OrderForm = ({ onFinish }) => {
         <div className="grid grid-cols-3 gap-8">
           <div>
             {/* Подъезд */}
-            <label htmlFor="porch">Подъезд:</label>
+            <label htmlFor="porch">Scara:</label>
             <input
               className={`input ${errors.porch ? 'error' : ''}`}
               type="number"
@@ -185,7 +193,7 @@ const OrderForm = ({ onFinish }) => {
           </div>
           <div>
             {/* Этаж */}
-            <label htmlFor="floor">Этаж:</label>
+            <label htmlFor="floor">Etaj:</label>
             <input
               className={`input ${errors.floor ? 'error' : ''}`}
               type="number"
@@ -216,7 +224,7 @@ const OrderForm = ({ onFinish }) => {
           <label>Metoda de plata:</label>
           <div className="flex mb-3">
             <label htmlFor="cod" className="checkbox-label__container mr-10">
-              Наличными
+              Cash
               <input
                 id="cod"
                 name="payment_method"
@@ -228,7 +236,7 @@ const OrderForm = ({ onFinish }) => {
               <span className="checkmark"></span>
             </label>
             <label htmlFor="card" className="checkbox-label__container">
-              Картой
+              Card
               <input
                 id="card"
                 name="payment_method"
@@ -264,7 +272,7 @@ const OrderForm = ({ onFinish }) => {
           <Button type="submit" className="mr-8">
             Comanda
           </Button>
-          <div className="text-2xl font-black">Total: {totalPrice} lei</div>
+          <div className="text-2xl font-black">Total: {endPrice} lei</div>
         </div>
         <p className="error-text">{Object.keys(errors).length !== 0 && 'Sunt erori'}</p>
       </form>

@@ -1133,7 +1133,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // categoriesWithProducts: categories,
+      categoriesWithProducts: categories,
     },
   };
 }

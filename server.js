@@ -1,4 +1,5 @@
 const next = require('next');
+const bodyParser = require('body-parser');
 const express = require('express');
 const { configureRoutes } = require('./routes');
 
@@ -9,8 +10,10 @@ const handle = app.getRequestHandler();
 
 app
   .prepare()
+
   .then(() => {
     const server = express();
+    server.use(bodyParser.json()); // to support JSON-encoded bodies
 
     configureRoutes(server);
 
