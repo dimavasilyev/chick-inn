@@ -37,7 +37,7 @@ const NavMenu = ({ onItemClick }) => {
     <nav className="pt-4 lg:pt-0 mr-12 ml-8">
       <ul className="flex flex-col lg:flex-row justify-around lg:items-center">
         {navItems.map(({ link, title, sublinks }) => (
-          <li key={link} className="mb-4 lg:mb-0 text-2xl lg:text-xl">
+          <li key={link} className="mb-4 lg:mb-0 text-2xl">
             {sublinks?.length > 0 ? (
               <>
                 <a onClick={onItemClick} href={link}>
@@ -69,10 +69,7 @@ const NavMenu = ({ onItemClick }) => {
         {`
           nav {
             flex: 1;
-          }
-
-          ul {
-            font-family: 'Chick-inn';
+            font-size: 16px;
           }
 
           li {

@@ -56,7 +56,6 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
       <style jsx>
         {`
           .category-title {
-            font-family: 'Chick-inn';
             text-transform: uppercase;
           }
 

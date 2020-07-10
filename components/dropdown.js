@@ -29,7 +29,6 @@ const Dropdown = ({ items, renderItem, className }) => {
         {`
           .dropdown-container {
             display: none;
-            font-family: 'SFUIDisplay';
             text-transform: initial;
             min-width: 60px;
             width: fit-content;
