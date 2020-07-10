@@ -69,7 +69,7 @@ const NavMenu = ({ onItemClick }) => {
         {`
           nav {
             flex: 1;
-            font-size: 16px;
+            font-weight: 800;
           }
 
           li {

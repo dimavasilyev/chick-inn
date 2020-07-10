@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const host = 'http://localhost:3000';
+// const host = 'http://localhost:3000';
+const host = 'http://api.chicken.md/wp/wp-admin';
 
 // export default {
 //   getCategories: () => axios.get(`${host}/getCategories`),
@@ -106,6 +107,11 @@ export default {
   getCategories: () => ({
     data: [],
   }),
+  // getCategories: () =>
+  //   axios
+  //     .get(`${host}/getCategories`)
+  //     .then((res) => ({}))
+  //     .catch((e) => console.log(e)),
   getProducts: () => ({
     data: [],
   }),

@@ -28,7 +28,7 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
         if (data?.length) {
           return (
             <div key={id} className="pt-32 -mt-16 container" id={`${slug}`}>
-              <h2 className="text-4xl pb-10 text-center category-title">{name}</h2>
+              <h2 className="text-4xl pb-10 text-center category-title font-bold">{name}</h2>
               <ul className="grid grid-cols-1 lg:grid-cols-2 row-gap-10 col-gap-20">
                 {data?.map((item) => (
                   <li key={item.id}>
