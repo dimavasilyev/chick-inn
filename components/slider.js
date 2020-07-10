@@ -41,6 +41,10 @@ const Slider = () => {
             border-radius: 25px;
             overflow: hidden;
           }
+
+          img {
+            border-radius: 25px;
+          }
         `}
       </style>
     </div>
