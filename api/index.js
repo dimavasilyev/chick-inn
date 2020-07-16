@@ -1,31 +1,24 @@
-import axios from 'axios';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 
 import wooConfig from '../woo-config';
 
 const WooCommerce = new WooCommerceRestApi(wooConfig);
-console.log('WooCommerce:', WooCommerce);
-
-// const host =
-//   process.env.NODE_ENV === 'production' ? 'https://chicken.md/' : 'http://localhost:3000';
-const host = 'https://chicken.md:3000';
-// const host = 'http://localhost:3000';
 
 export default {
   getCategories: () => {
-    console.log('test woo');
-    WooCommerce.get('products')
-      .then((res) => {
-        console.log(res, 'woo commmerce res');
-      })
+    return WooCommerce.get('products/categories')
+      .then((res) => res)
       .catch((error) => {
         console.log(error);
       });
-
-    return { data: [] };
-    // axios.get(`${host}/getCategories`);
   },
-  getProducts: () => axios.get(`${host}/getProducts`),
+  getProducts: () => {
+    return WooCommerce.get('products')
+      .then((res) => res)
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   makeOrder: (formValues, cartItems, totalPrice) => {
     const {
       email,
@@ -115,11 +108,13 @@ export default {
       // },
     };
 
-    return axios({
-      method: 'POST',
-      data,
-      url: `${host}/orders`,
-    });
+    return WooCommerce.post('orders', data)
+      .then((res) => {
+        response.json(res.data);
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
   },
 };
 
