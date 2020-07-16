@@ -1,7 +1,7 @@
 const config = {
   url: 'http://api.chicken.md',
-  consumerKey: 'ck_1d17ce0fb20f7ebc74c1cb099f937e85553610af',
-  consumerSecret: 'cs_faaffaf0fc45fd8a85731893c15fdd34be11dd0c',
+  consumerKey: 'ck_ee621c5433ba7db88bf08862a33f7cf5ceb7a3ff',
+  consumerSecret: 'cs_4cfd576be1cd7eacb1d48602ef14897eb67983fd',
   version: 'wc/v3',
 };
 

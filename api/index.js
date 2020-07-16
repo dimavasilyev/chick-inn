@@ -1,10 +1,30 @@
 import axios from 'axios';
+import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 
-const host =
-  process.env.NODE_ENV === 'production' ? 'https://chicken.md/' : 'http://localhost:3000';
+import wooConfig from '../woo-config';
+
+const WooCommerce = new WooCommerceRestApi(wooConfig);
+console.log('WooCommerce:', WooCommerce);
+
+// const host =
+//   process.env.NODE_ENV === 'production' ? 'https://chicken.md/' : 'http://localhost:3000';
+const host = 'https://chicken.md:3000';
+// const host = 'http://localhost:3000';
 
 export default {
-  getCategories: () => axios.get(`${host}/getCategories`),
+  getCategories: () => {
+    console.log('test woo');
+    WooCommerce.get('products')
+      .then((res) => {
+        console.log(res, 'woo commmerce res');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    return { data: [] };
+    // axios.get(`${host}/getCategories`);
+  },
   getProducts: () => axios.get(`${host}/getProducts`),
   makeOrder: (formValues, cartItems, totalPrice) => {
     const {
