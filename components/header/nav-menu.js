@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
 import Dropdown from '../dropdown';
-import api from '../../api';
-import { sortByMenuOrder } from '../../helpers';
+import { useCategories } from '../../hooks';
 
 const NavMenu = ({ onItemClick }) => {
-  const [categories, setCategories] = useState([]);
+  const { categories } = useCategories();
 
   const navItems = [
     {
@@ -21,17 +21,6 @@ const NavMenu = ({ onItemClick }) => {
       link: '/delivery',
     },
   ];
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    const { data } = await api.getCategories();
-    const categories = sortByMenuOrder(data);
-
-    setCategories(categories.filter((category) => category.slug !== 'uncategorized'));
-  };
 
   return (
     <nav className="pt-4 lg:pt-0 mr-12 ml-8">
