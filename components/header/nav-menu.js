@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Dropdown from '../dropdown';
-import { useCategories } from '../../hooks';
+import { useProducts } from '../../hooks';
 
 const NavMenu = ({ onItemClick }) => {
-  const { categories } = useCategories();
+  const { categories } = useProducts();
 
   const navItems = [
     {
