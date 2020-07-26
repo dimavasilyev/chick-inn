@@ -26,8 +26,6 @@ const schema = yup.object().shape({
   comment: yup.string(),
 });
 
-str_replace('+', '', $string);
-
 const OrderForm = ({ onFinish }) => {
   const { emptyCart, totalPrice, items } = useCart();
   const [isSubmitted, setSubmission] = useState(false);
