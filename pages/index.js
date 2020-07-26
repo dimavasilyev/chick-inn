@@ -40,7 +40,7 @@ const Index = ({ products = [], categories = [] }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return Promise.all([api.getCategories(), api.getProducts()]).then((values) => {
     const [categories, products] = values;
 
