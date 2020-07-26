@@ -7,7 +7,6 @@ import { useProducts } from '../hooks';
 
 const Index = () => {
   const { categoriesWithProducts } = useProducts();
-  console.log('categoriesWithProducts:', categoriesWithProducts);
 
   return (
     <Layout>

@@ -9,7 +9,6 @@ const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categoriesWithProducts, setCategoriesWithProducts] = useState([]);
-  console.log('categoriesWithProducts:', categoriesWithProducts);
 
   useEffect(() => {
     if (products.length > 0 && categories.length > 0) {
@@ -28,8 +27,6 @@ const ProductsProvider = ({ children }) => {
           });
         }
       });
-
-      console.log('categoriesCopy:', categoriesCopy);
 
       setCategoriesWithProducts(categoriesCopy);
     }
