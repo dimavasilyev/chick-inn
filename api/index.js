@@ -59,9 +59,10 @@ export default {
       return methodString;
     };
 
-    const restFrom = rest ? `Сдача с ${rest}` : '';
+    const restFrom = rest ? `Сдача с ${rest}. ` : '';
     const userComment = comment
-      ? `, Комментарий:
+      ? `
+      Комментарий:
     ${comment}`
       : '';
 
@@ -78,14 +79,8 @@ export default {
     };
 
     let note = '';
-    if (restFrom)
-      note += `
-    ${restFrom}
-    `;
-    if (userComment)
-      note += `
-    ${userComment}
-    `;
+    if (restFrom) note += restFrom;
+    if (userComment) note += userComment;
 
     const data = {
       payment_method,
