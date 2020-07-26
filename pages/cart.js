@@ -13,9 +13,9 @@ const Cart = () => {
 
   return (
     <Layout>
-      <div className="cart-container bg-black lg:w-1/2 mx-auto p-6 lg:p-8">
+      <div className="cart-container bg-black lg:w-1/2 mx-auto p-4 md:p-6 lg:p-8">
         {formSuccess ? (
-          <div className="text-5xl font-semibold text-white text-center">
+          <div className="text-3xl md:text-5xl font-semibold text-white text-center">
             Vă mulțumim pentru comanda
             <img src={CheckMark} />
           </div>

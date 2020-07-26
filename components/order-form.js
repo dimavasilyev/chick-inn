@@ -38,7 +38,7 @@ const OrderForm = ({ onFinish }) => {
     }
   };
 
-  const { handleChange, handleSubmit, errors, values } = useFormik({
+  const { handleChange, handleSubmit, errors, values, isSubmitting } = useFormik({
     validateOnChange: false,
     initialValues: {
       name: '',
@@ -62,13 +62,15 @@ const OrderForm = ({ onFinish }) => {
     validationSchema: schema,
   });
 
+  console.log('isSubmitting:', isSubmitting);
+
   const endPrice =
     totalPrice < 250 && values.delivery_method === 'delivery' ? totalPrice + 35 : totalPrice;
 
   return (
     <div className="flex flex-col">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 justify-between gap-8">
+        <div className="grid grid-cols-2 justify-between gap-4 md:gap-8">
           <div>
             {/* Name */}
             <label htmlFor="name">
@@ -119,7 +121,7 @@ const OrderForm = ({ onFinish }) => {
           {/* Metoda de livrare */}
           <label>Metoda de livrare:</label>
           <div className="flex mb-3">
-            <label htmlFor="delivery" className="checkbox-label__container mr-10">
+            <label htmlFor="delivery" className="checkbox-label__container mr-6 md:mr-10">
               Livrare (35 lei)
               <input
                 id="delivery"
@@ -145,7 +147,7 @@ const OrderForm = ({ onFinish }) => {
             </label>
           </div>
         </div>
-        <div className="grid grid-cols-2 justify-between gap-8">
+        <div className="grid grid-cols-2 justify-between gap-4 md:gap-8">
           <div>
             {/* Strada */}
             <label htmlFor="street">
@@ -177,7 +179,7 @@ const OrderForm = ({ onFinish }) => {
             <p className="error-text">{errors.house}</p>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-4 md:gap-8">
           <div>
             {/* Подъезд */}
             <label htmlFor="porch">Scara:</label>
@@ -269,7 +271,7 @@ const OrderForm = ({ onFinish }) => {
           <textarea className="input" name="comment" id="comment" onChange={handleChange} />
         </div>
         <div className="flex items-center mt-6">
-          <Button type="submit" className="mr-8">
+          <Button type="submit" className="mr-8" disabled={isSubmitting}>
             Comanda
           </Button>
           <div className="text-2xl font-black">Total: {endPrice} lei</div>

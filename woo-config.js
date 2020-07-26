@@ -1,4 +1,6 @@
-import axios from 'axios';
+const axios = require('axios');
+
+axios.defaults.headers['Content-Type'] = 'application/json';
 
 const config = {
   url: 'https://api.chicken.md',

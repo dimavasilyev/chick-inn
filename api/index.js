@@ -77,9 +77,14 @@ export default {
       ${apartmentStr}`;
     };
 
-    const note = `
-      ${restFrom}
-      ${userComment}
+    let note = '';
+    if (restFrom)
+      note += `
+    ${restFrom}
+    `;
+    if (userComment)
+      note += `
+    ${userComment}
     `;
 
     const data = {
@@ -93,6 +98,7 @@ export default {
       },
       customer_note: note,
       line_items: preparedCartItems,
+      status: 'processing',
       shipping_lines: [
         {
           method_id: 'flat_rate',
@@ -108,33 +114,10 @@ export default {
       // },
     };
 
-    return WooCommerce.post('orders', data)
-      .then((res) => {
-        response.json(res.data);
-      })
+    return WooCommerce.post('orders', { ...data })
+      .then((res) => res)
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
       });
   },
 };
-
-// export default {
-//   getCategories: () => {
-//     axios
-//       .get(`${host}/getCategories`)
-//       .then((res) => console.log(res))
-//       .catch((e) => console.log(e));
-//     return { data: [] };
-//   },
-//   // getCategories: () =>
-//   //   axios
-//   //     .get(`${host}/getCategories`)
-//   //     .then((res) => ({}))
-//   //     .catch((e) => console.log(e)),
-//   getProducts: () => ({
-//     data: [],
-//   }),
-//   makeOrder: (formValues, cartItems) => {
-//     return Promise.resolve();
-//   },
-// };

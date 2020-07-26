@@ -37,7 +37,8 @@ const CartProduct = ({ name, quantity, totalPrice, image, onRemove, onItemQuanti
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            min-width: 200px;
+            min-width: 185px;
+            width: 185px;
             flex: 1;
           }
         `}
