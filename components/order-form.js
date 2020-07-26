@@ -8,12 +8,7 @@ import api from '../api';
 
 const schema = yup.object().shape({
   name: yup.string().required('Introduceti numele'),
-  telefon: yup
-    .string()
-    .matches(/^[0-9+\.\-\/]+$/, 'Telefon incorect')
-    .min(6, 'Prea scurt')
-    .max(15, 'Prea lung')
-    .required('Introduceti telefonul'),
+  telefon: yup.string().min(6, 'Prea scurt').max(15, 'Prea lung').required('Introduceti telefonul'),
   email: yup.string().email('Email incorect').required('Introduceti email-ul'),
   delivery_method: yup.mixed().oneOf(['delivery', 'take_away']),
   street: yup.string().required('Introduceti strada'),
