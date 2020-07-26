@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 
-const Deliver = () => {
+const Delivery = () => {
   const items = [
     {
       text: 'Приём заказов: ежедневно с 11:00 до 22:30',
@@ -22,7 +22,7 @@ const Deliver = () => {
       <div className="bg-black p-8" style={{ borderRadius: 15 }}>
         <ul className="text-xl lg:text-2xl">
           {items.map((item) => (
-            <li className="flex mt-3">
+            <li key={item.text} className="flex mt-3">
               <div className="w-4 bg-yellow h-4 mr-3 rounded-full mt-3" />
               <span>{item.text}</span>
             </li>
@@ -40,4 +40,4 @@ const Deliver = () => {
   );
 };
 
-export default Deliver;
+export default Delivery;
