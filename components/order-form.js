@@ -10,7 +10,7 @@ const schema = yup.object().shape({
   name: yup.string().required('Introduceti numele'),
   telefon: yup
     .string()
-    .matches(/^[0-9]*$/, 'Telefon incorect')
+    .matches(/^[0-9\.\-\/]+$/, 'Telefon incorect')
     .min(6, 'Prea scurt')
     .max(15, 'Prea lung')
     .required('Introduceti telefonul'),
@@ -25,6 +25,8 @@ const schema = yup.object().shape({
   rest: yup.number(),
   comment: yup.string(),
 });
+
+str_replace('+', '', $string);
 
 const OrderForm = ({ onFinish }) => {
   const { emptyCart, totalPrice, items } = useCart();
@@ -95,6 +97,7 @@ const OrderForm = ({ onFinish }) => {
               className={`input ${errors.telefon ? 'error' : ''}`}
               type="text"
               pattern="[0-9]*"
+              inputMode="tel"
               id="telefon"
               name="telefon"
               placeholder=""
