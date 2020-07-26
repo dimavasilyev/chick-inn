@@ -10,27 +10,27 @@ import { sortByMenuOrder } from '../helpers';
 const Index = ({ products = [], categories = [] }) => {
   const { categoriesWithProducts, setCategoriesWithProducts, setCategories } = useProducts();
 
-  useEffect(() => {
-    if (products.length > 0 && categories.length > 0) {
-      const categoriesCopy = [...categories];
-      categoriesCopy.forEach((category) => {
-        if (category.count > 0 && category.display === 'products') {
-          products.map((product) => {
-            if (product.categories.some((productCategory) => category.id === productCategory.id)) {
-              if (category.data?.length > 0) {
-                category.data.push(product);
-              } else {
-                category.data = [product];
-              }
-            }
-          });
-        }
-      });
+  // useEffect(() => {
+  //   if (products.length > 0 && categories.length > 0) {
+  //     const categoriesCopy = [...categories];
+  //     categoriesCopy.forEach((category) => {
+  //       if (category.count > 0 && category.display === 'products') {
+  //         products.map((product) => {
+  //           if (product.categories.some((productCategory) => category.id === productCategory.id)) {
+  //             if (category.data?.length > 0) {
+  //               category.data.push(product);
+  //             } else {
+  //               category.data = [product];
+  //             }
+  //           }
+  //         });
+  //       }
+  //     });
 
-      setCategoriesWithProducts(categoriesCopy);
-      setCategories(categories);
-    }
-  }, [categories.length]);
+  //     setCategoriesWithProducts(categoriesCopy);
+  //     setCategories(categories);
+  //   }
+  // }, [categories.length]);
 
   return (
     <Layout>
@@ -40,20 +40,20 @@ const Index = ({ products = [], categories = [] }) => {
   );
 };
 
-export async function getServerSideProps() {
-  return Promise.all([api.getCategories(), api.getProducts()]).then((values) => {
-    const [categories, products] = values;
+// export async function getServerSideProps() {
+//   return Promise.all([api.getCategories(), api.getProducts()]).then((values) => {
+//     const [categories, products] = values;
 
-    return {
-      props: {
-        revalidate: 1,
-        products: products.data,
-        categories: sortByMenuOrder(categories.data).filter(
-          (category) => category.slug !== 'uncategorized',
-        ),
-      },
-    };
-  });
-}
+//     return {
+//       props: {
+//         revalidate: 1,
+//         products: products.data,
+//         categories: sortByMenuOrder(categories.data).filter(
+//           (category) => category.slug !== 'uncategorized',
+//         ),
+//       },
+//     };
+//   });
+// }
 
 export default Index;
