@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Logo from '../../assets/logo.svg';
 import NavMenu from './nav-menu';
@@ -10,6 +11,7 @@ import { footerChickinnSvg } from '../../helpers';
 
 const Header = () => {
   const [isMobileActive, setMobileActive] = useState(false);
+  const router = useRouter();
 
   const handleBurgerClick = () => {
     setMobileActive(!isMobileActive);
@@ -18,6 +20,7 @@ const Header = () => {
   const handleLogoClick = () => {
     scrollTop();
     setMobileActive(false);
+    router.push('/');
   };
 
   const scrollTop = () => {

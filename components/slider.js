@@ -17,7 +17,7 @@ const Slider = () => {
   }, [width]);
 
   return (
-    <div className="w-full pb-20">
+    <div className="w-full pb-20 slider-container">
       <Carousel
         showArrows
         showStatus={false}
@@ -42,7 +42,7 @@ const Slider = () => {
             overflow: hidden;
           }
 
-          img {
+          .slider-container img {
             border-radius: 25px;
           }
         `}
