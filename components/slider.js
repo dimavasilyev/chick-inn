@@ -26,7 +26,7 @@ const Slider = () => {
         showIndicators={false}
       >
         <div>
-          <img src={deliveryImg} />
+          <img src="https://api.chicken.md/wp-content/uploads/2020/05/Food0134-scaled.jpg" />
         </div>
       </Carousel>
       <style jsx global>
