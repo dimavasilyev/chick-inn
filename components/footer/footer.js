@@ -8,8 +8,8 @@ const Footer = () => {
     <div className="flex items-center">
       <img src={designByImg} />
       <div className="">
-        <div className="text-sm font-normal ml-3">Дизайн сайта:</div>
-        <div className="text-sm font-normal ml-3">Данила Охрименко</div>
+        <div className="text-sm font-normal ml-3">Design :</div>
+        <div className="text-sm font-normal ml-3">Danila Ohrimenco</div>
       </div>
     </div>
   );
