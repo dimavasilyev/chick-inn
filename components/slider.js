@@ -28,6 +28,9 @@ const Slider = () => {
         <div>
           <img src="https://api.chicken.md/wp-content/uploads/2020/05/Food0134-scaled.jpg" />
         </div>
+        <div>
+          <img src="https://api.chicken.md/wp-content/uploads/2020/05/Food0191-scaled.jpg" />
+        </div>
       </Carousel>
       <style jsx global>
         {`
