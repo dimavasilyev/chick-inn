@@ -5,7 +5,8 @@ import ProductShort from './product-short';
 import ProductExtended from './product-extended';
 import { useCart } from '../../hooks';
 
-const ProductsList = ({ categoriesWithProducts = [] }) => {
+const ProductsList = (props) => {
+  const { categoriesWithProducts = [] } = props;
   const [extendedProductId, setExtendedProduct] = useState();
   const { addItem } = useCart();
 
@@ -18,8 +19,6 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
     }
   };
 
-  sortByMenuOrder(categoriesWithProducts);
-
   if (categoriesWithProducts.length === 0) {
     return preloader;
   }
@@ -28,11 +27,13 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
     <div>
       {categoriesWithProducts.map(({ name, id, data, slug }) => {
         if (data?.length) {
+          const sortedData = sortByMenuOrder(data);
+
           return (
             <div key={id} className="pt-32 -mt-16 container" id={`${slug}`}>
               <h2 className="text-4xl pb-10 text-center category-title font-bold">{name}</h2>
               <ul className="grid grid-cols-1 lg:grid-cols-2 row-gap-10 col-gap-20">
-                {data?.map((item) => (
+                {sortedData.map((item) => (
                   <li key={item.id}>
                     {
                       // extendedProductId === item.id &&
@@ -42,7 +43,7 @@ const ProductsList = ({ categoriesWithProducts = [] }) => {
                         <ProductExtended
                           {...item}
                           onClose={() => setExtendedProduct(undefined)}
-                          viewType={item.viewType ?? viewTypes.select}
+                          viewType={item?.viewType ?? viewTypes.select}
                           addToCart={addItem}
                         />
                       )

@@ -18,6 +18,7 @@ const Dropdown = ({ items, renderItem, className }) => {
     >
       <ul>
         {items.map((item, i) => {
+          if (item.count === 0) return;
           return (
             <li className="mb-3" key={i} onClick={hanldeClick}>
               {renderItem ? renderItem(item) : null}

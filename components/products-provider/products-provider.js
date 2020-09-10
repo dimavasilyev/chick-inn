@@ -37,16 +37,25 @@ const ProductsProvider = ({ children }) => {
   }, []);
 
   const fetchProducts = async () => {
-    const { data: products } = await api.getProducts();
+    const res = await api.getProducts();
 
-    setProducts(products);
+    if (res) {
+      const products = res.data;
+
+      if (products) setProducts(products);
+    }
   };
 
   const fetchCategories = async () => {
-    const { data } = await api.getCategories();
-    const categories = sortByMenuOrder(data);
+    const res = await api.getCategories();
 
-    setCategories(categories.filter((category) => category.slug !== 'uncategorized'));
+    if (res) {
+      const data = res.data;
+      const categories = sortByMenuOrder(data);
+      console.log('categories:', categories);
+
+      setCategories(categories.filter((category) => category.slug !== 'uncategorized'));
+    }
   };
 
   return (

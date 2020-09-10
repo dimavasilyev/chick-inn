@@ -57,8 +57,6 @@ const OrderForm = ({ onFinish }) => {
     validationSchema: schema,
   });
 
-  console.log('isSubmitting:', isSubmitting);
-
   const endPrice =
     totalPrice < 250 && values.delivery_method === 'delivery' ? totalPrice + 35 : totalPrice;
 

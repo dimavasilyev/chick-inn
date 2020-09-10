@@ -13,7 +13,7 @@ export default {
       });
   },
   getProducts: () => {
-    return WooCommerce.get('products')
+    return WooCommerce.get('products', { per_page: 100 })
       .then((res) => res)
       .catch((error) => {
         console.log(error);
