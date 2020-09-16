@@ -1,5 +1,5 @@
-import '../styles/index.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import '../styles/index.css';
 
 import { CartProvider } from '../components/cart-provider/cart-provider';
 import { ProductsProvider } from '../components/products-provider/products-provider';
