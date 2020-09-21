@@ -1,7 +1,7 @@
 import Lockr from 'lockr';
 
 export const sortByMenuOrder = (items) => {
-  return items.sort((a, b) => b?.menu_order - a?.menu_order);
+  return [...items].sort((a, b) => a?.menu_order - b?.menu_order);
 };
 
 export const cleanTextFromTags = (str) => str.replace(/<\/?[^>]+(>|$)/g, '');

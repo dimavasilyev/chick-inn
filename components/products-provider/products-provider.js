@@ -52,7 +52,6 @@ const ProductsProvider = ({ children }) => {
     if (res) {
       const data = res.data;
       const categories = sortByMenuOrder(data);
-      console.log('categories:', categories);
 
       setCategories(categories.filter((category) => category.slug !== 'uncategorized'));
     }
