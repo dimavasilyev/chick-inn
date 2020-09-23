@@ -9,7 +9,7 @@ import api from '../api';
 const schema = yup.object().shape({
   name: yup.string().required('Introduceti numele'),
   telefon: yup.string().min(6, 'Prea scurt').max(15, 'Prea lung').required('Introduceti telefonul'),
-  email: yup.string().email('Email incorect').required('Introduceti email-ul'),
+  email: yup.string().email('Email incorect'),
   delivery_method: yup.mixed().oneOf(['delivery', 'take_away']),
   street: yup.string().required('Introduceti strada'),
   house: yup.string().required('Introduceti casa'),
@@ -38,7 +38,7 @@ const OrderForm = ({ onFinish }) => {
     initialValues: {
       name: '',
       telefon: '',
-      email: '',
+      // email: '',
       delivery_method: 'delivery',
       street: '',
       // house: undefined,
@@ -58,7 +58,7 @@ const OrderForm = ({ onFinish }) => {
   });
 
   const endPrice =
-    totalPrice < 250 && values.delivery_method === 'delivery' ? totalPrice + 35 : totalPrice;
+    totalPrice < 200 && values.delivery_method === 'delivery' ? totalPrice + 35 : totalPrice;
 
   return (
     <div className="flex flex-col">
@@ -115,7 +115,7 @@ const OrderForm = ({ onFinish }) => {
           <label>Metoda de livrare:</label>
           <div className="flex mb-3">
             <label htmlFor="delivery" className="checkbox-label__container mr-6 md:mr-10">
-              Livrare (35 lei)
+              Livrare ({totalPrice > 200 ? 'gratis' : '35 lei'})
               <input
                 id="delivery"
                 name="delivery_method"

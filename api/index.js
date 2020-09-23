@@ -42,13 +42,15 @@ export default {
 
     const paymentTitle = payment_method === 'cod' ? 'Cash on delivery' : 'Card(terminal)';
 
-    const deliveryMethod = () => {
+    const deliveryConfig = () => {
       let methodString = '';
+      let total;
 
       if (delivery_method === 'delivery') {
         methodString = 'Доставка';
-        if (totalPrice < 250) {
+        if (totalPrice < 200) {
           methodString += ' (35 лей)';
+          total = '35';
         } else {
           methodString += ' (Бесплатная)';
         }
@@ -56,7 +58,10 @@ export default {
         methodString = 'Самовывоз';
       }
 
-      return methodString;
+      return {
+        methodString,
+        total,
+      };
     };
 
     const restFrom = rest ? `Сдача с ${rest}. ` : '';
@@ -97,7 +102,8 @@ export default {
       shipping_lines: [
         {
           method_id: 'flat_rate',
-          method_title: deliveryMethod(),
+          method_title: deliveryConfig().methodString,
+          total: deliveryConfig().total,
         },
         // {
         //   method_id: 'free_shipping',
