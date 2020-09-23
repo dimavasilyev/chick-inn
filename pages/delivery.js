@@ -4,16 +4,16 @@ import Layout from '../components/layout';
 const Delivery = () => {
   const items = [
     {
-      text: 'Приём заказов: ежедневно с 11:00 до 22:30',
+      text: 'Acceptăm comenzi zilnic: 11:00-22:30',
     },
     {
-      text: 'Бесплатная доставка: от 200 лей',
+      text: 'Livrare gratuită: de la 200 lei',
     },
     {
-      text: 'Стоимость доставки: 35 лей',
+      text: 'Costul livrării: 35 lei',
     },
     {
-      text: 'Доставка по городу: от 45 мин',
+      text: 'Livrare prin oraș: de la 45 min',
     },
   ];
 

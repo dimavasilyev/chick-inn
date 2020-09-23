@@ -20,7 +20,7 @@ const Footer = () => {
         <a href="tel:+373 78882 025">Tel: +373 7888 20 25</a>
       </div>
       <div className="text-xl lg:text-xl">
-        <a href="mailto:info@chicken.md"> Email: info@chicken.md</a>
+        <a href="mailto:zakaz.chickinn@gmail.com	"> Email: zakaz.chickinn@gmail.com </a>
       </div>
     </div>
   );
