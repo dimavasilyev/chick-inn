@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import designByImg from '../../assets/do.png';
 import { footerChickinnSvg } from '../../helpers';
 
 const Footer = () => {
+  const [isFirefox, setFirefox] = useState(false);
+
+  useEffect(() => {
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+      setFirefox(true)
+    }
+  }, [])
+
   const designedBy = (
     <div className="flex items-center">
       <img src={designByImg} />
@@ -37,9 +45,11 @@ const Footer = () => {
           <div className="mr-16">{designedBy}</div>
           {contacts}
         </div>
-        <div className="bottom-0 right-0 mr-0 lg:mr-8 absolute w-2/5 lg:w-auto">
-          {footerChickinnSvg}
-        </div>
+        {!isFirefox && 
+          <div className="bottom-0 right-0 mr-0 lg:mr-8 absolute w-2/5 lg:w-auto">
+            {footerChickinnSvg}
+          </div>
+        }
       </div>
       <style>
         {`
