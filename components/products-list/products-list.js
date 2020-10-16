@@ -3,14 +3,21 @@ import React, { useState } from 'react';
 import { sortByMenuOrder, ExtendedProductsViewTypes, viewTypes } from 'helpers';
 import ProductShort from './product-short';
 import ProductExtended from './product-extended';
+import PreventOrder from './prevent-order';
 import { useCart } from '../../hooks';
 
 const ProductsList = (props) => {
   const { categoriesWithProducts = [] } = props;
   const [extendedProductId, setExtendedProduct] = useState();
+  const [showModal, setShowModal] = useState(false);
   const { addItem } = useCart();
 
   const handleShortProductClick = (item) => {
+    if (!isWorkingHours()) {
+      preventOrder();
+      return;
+    }
+
     setExtendedProduct(item.id);
     if (item?.viewType === viewTypes.nonextended) {
       addToCart();
@@ -23,8 +30,34 @@ const ProductsList = (props) => {
     return preloader;
   }
 
+  const isWorkingHours = () => {
+    const date = new Date();
+    let currentHour = date.getHours();
+    const from = 11;
+    const to = 23;
+
+    if (currentHour === 22) {
+      const currentMinutes = date.getMinutes();
+
+      if (currentMinutes > 30) {
+        currentHour = 23;
+      }
+    }
+
+    if (currentHour >= from && currentHour < to) {
+      return true;
+    }
+
+    return false;
+  }
+
+  const preventOrder = () => {
+    setShowModal(true)
+  }
+
   return (
     <div>
+      {showModal && <PreventOrder onClose={() => setShowModal(false)} />}
       {categoriesWithProducts.map(({ name, id, data, slug }) => {
         if (data?.length) {
           const sortedData = sortByMenuOrder(data);
