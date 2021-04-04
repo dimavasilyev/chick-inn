@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript, Html } from 'next/document';
 import React from 'react';
 import favicon from '../assets/logo_medium.png';
 
@@ -27,14 +27,18 @@ class CustomDocument extends Document {
       })`;
 
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta name="theme-color" content="#ECBE02" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta
+            http-equiv="refresh"
+            content="0; url = https://www.straus.md/ru/restaurant/chickinn/"
+          />
           <link rel="icon" href={favicon} />
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
           <script type="text/javascript" dangerouslySetInnerHTML={{ __html: ymCode }} />
-
+          <script>window.location.replace('https://www.straus.md/ru/restaurant/chickinn/')</script>
           <noscript>
             <div>
               <img
@@ -45,11 +49,9 @@ class CustomDocument extends Document {
             </div>
           </noscript>
         </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
+        <body>{/* <Main />
+          <NextScript /> */}</body>
+      </Html>
     );
   }
 }

@@ -4,11 +4,11 @@ import { ProductsProvider } from '../components/products-provider/products-provi
 import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    const strausUrl = 'https://www.straus.md/ru/restaurant/chickinn/';
+  // useEffect(() => {
+  //   const strausUrl = 'https://www.straus.md/ru/restaurant/chickinn/';
 
-    window.location.replace(strausUrl);
-  }, []);
+  //   window.location.replace(strausUrl);
+  // }, []);
   return (
     <CartProvider>
       <ProductsProvider>
