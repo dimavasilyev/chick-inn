@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "formik": "^2.1.4",
     "lockr": "^0.8.5",
-    "next": "^9.3.6",
+    "next": "^9.5.5",
     "next-fonts": "^1.1.0",
     "next-images": "^1.4.0",
     "next-manifest": "^3.0.1",
